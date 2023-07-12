@@ -20,8 +20,8 @@ class HomeNetworkModelAdapter extends TypeAdapter<HomeNetworkModel> {
       customName: fields[0] as String,
       nameHomeWifiNetwork: fields[1] as String,
       nameFromHardListWifiName: fields[2] as String,
-      ipAdressFireplace: fields[3] as String,
-      macAdreesInLocalWiFi: fields[4] as String,
+      ipAddressFireplace: fields[3] as String,
+      macAddressInLocalWiFi: fields[4] as String,
       password: fields[5] as String,
     );
   }
@@ -37,9 +37,9 @@ class HomeNetworkModelAdapter extends TypeAdapter<HomeNetworkModel> {
       ..writeByte(2)
       ..write(obj.nameFromHardListWifiName)
       ..writeByte(3)
-      ..write(obj.ipAdressFireplace)
+      ..write(obj.ipAddressFireplace)
       ..writeByte(4)
-      ..write(obj.macAdreesInLocalWiFi)
+      ..write(obj.macAddressInLocalWiFi)
       ..writeByte(5)
       ..write(obj.password);
   }

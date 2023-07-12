@@ -2,9 +2,11 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:fireplace/ui_layout/src/pages/pages.dart';
 import 'package:fireplace/ui_layout/src/styles/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:models/models.dart';
+import 'package:business_layout/business_layout.dart';
 
 Future<void> main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -37,13 +39,23 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: themeDark,
-      home: Container(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<RootBloc>(
+          create: (_) => RootBloc()..add(const RootEvent.onInit()),
+        ),
+        BlocProvider<ConnectedDirectlyBloc>(
+          create: (_) => ConnectedDirectlyBloc()
+            ..add(
+              const ConnectedDirectlyEvent.onInit(),
+            ),
+        ),
+      ],
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: themeDark,
+        home: const SearchFireplacePage(),
+      ),
     );
   }
 }
-// flutter create --template=package business_layout
-// flutter create --template=package data_layout
-// flutter create --template=package models

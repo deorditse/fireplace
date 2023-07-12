@@ -14,9 +14,9 @@ class HomeNetworkModel extends HiveObject {
   @HiveField(2)
   String nameFromHardListWifiName;
   @HiveField(3)
-  String ipAdressFireplace;
+  String ipAddressFireplace;
   @HiveField(4)
-  String macAdreesInLocalWiFi;
+  String macAddressInLocalWiFi;
   @HiveField(5)
   String password;
 
@@ -24,8 +24,8 @@ class HomeNetworkModel extends HiveObject {
     required this.customName,
     required this.nameHomeWifiNetwork,
     required this.nameFromHardListWifiName,
-    required this.ipAdressFireplace,
-    required this.macAdreesInLocalWiFi,
+    required this.ipAddressFireplace,
+    required this.macAddressInLocalWiFi,
     required this.password,
   });
 }

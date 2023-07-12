@@ -1,0 +1,28 @@
+<svg width="128" height="176" viewBox="0 0 128 176" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <filter id="filter0_d_1_2696" x="0" y="0" width="128" height="176"
+            filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feColorMatrix in="SourceAlpha" type="matrix"
+                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+            <feOffset dx="3" dy="7" />
+            <feGaussianBlur stdDeviation="2" />
+            <feComposite in2="hardAlpha" operator="out" />
+            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_2696" />
+            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_2696"
+                result="shape" />
+        </filter>
+        <linearGradient id="paint0_linear_1_2696" x1="61" y1="0" x2="61" y2="165"
+            gradientUnits="userSpaceOnUse">
+            <stop stop-color="#983C03" />
+            <stop offset="1" stop-color="#FF6300" />
+        </linearGradient>
+    </defs>
+    <g filter="url(#filter0_d_1_2696)">
+        <path
+            d="M117.667 61.875H107.667V48.1249C107.667 21.5886 86.7325 0 61 0C35.2675 0 14.3334 21.5886 14.3334 48.1249V61.875H4.33344C2.49094 61.875 1 63.4125 1 65.3126V151.25C1 158.833 6.97969 165 14.3334 165H107.667C115.02 165 121 158.833 121 151.25V65.3126C121 63.4125 119.509 61.875 117.667 61.875ZM70.9806 133.683C71.0847 134.653 70.7822 135.627 70.1506 136.355C69.5191 137.084 68.6141 137.5 67.6669 137.5H54.3334C53.3863 137.5 52.4813 137.084 51.8497 136.355C51.2181 135.627 50.9153 134.654 51.0197 133.683L53.1225 114.183C49.7078 111.622 47.6669 107.57 47.6669 103.125C47.6669 95.5418 53.6466 89.3749 61.0003 89.3749C68.3541 89.3749 74.3338 95.5415 74.3338 103.125C74.3338 107.57 72.2928 111.622 68.8781 114.183L70.9806 133.683ZM87.6666 61.875H34.3334V48.1249C34.3334 32.9617 46.2963 20.625 61 20.625C75.7038 20.625 87.6666 32.9617 87.6666 48.1249V61.875Z"
+            fill="url(#paint0_linear_1_2696)" />
+    </g>
+
+</svg>
