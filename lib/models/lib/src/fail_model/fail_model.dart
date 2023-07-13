@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:universal_html/html.dart';
 
 part 'fail_model.freezed.dart';
 
@@ -11,6 +12,7 @@ class FailModel with _$FailModel {
     required String failMessage,
     required String descriptionFail,
     @Default(404) int errorCode,
+    VoidCallback? onPressCallback,
   }) = _FailModel;
 
 // factory FailModel.fromJson(Map<String, Object?> json) =>

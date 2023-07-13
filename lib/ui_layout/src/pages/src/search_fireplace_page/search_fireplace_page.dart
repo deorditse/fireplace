@@ -7,7 +7,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../../styles/styles.dart';
-import 'old/find_device_screen_widget.dart';
 import 'widgets/widgets.dart';
 
 class SearchFireplacePage extends StatelessWidget {
@@ -68,14 +67,22 @@ class SearchFireplacePage extends StatelessWidget {
                   child: BlocBuilder<RootBloc, RootState>(
                       builder: (context, state) {
                     if (state.failModel != null) {
-                      return const ErrorSearchFireplace();
+                      return ErrorFireplace(
+                        failModel: state.failModel!,
+                      );
+                    } else if (state.listFireplacesFromLocalStorage != null) {
+                      return FromLocalStorageData(
+                        listFireplacesFromLocalStorage:
+                            state.listFireplacesFromLocalStorage!,
+                      );
                     } else if (state.isLoading) {
                       return const LoadingSearchFireplace();
-                    } else if (state.fromLocalStorage != null) {
-                      return const FromLocalStorageData();
                     } else {
                       ///камин подключен напрямую
-                      return const ConnectedDirectlyFireplaceData();
+                      return ConnectedDirectlyFireplaceData(
+                        wifiName: state.wifiName,
+                        ipAddress: state.ipAddress,
+                      );
                     }
                   }),
                 ),

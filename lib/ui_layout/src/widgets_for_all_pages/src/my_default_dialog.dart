@@ -3,20 +3,18 @@ import 'package:fireplace/ui_layout/src/styles/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-// myDefaultDialog(
-//     {required context,
-//     required Widget bodyWidget,
-//     double? height,
-//     bool barrierDismissible = true}) {
-//   Get.defaultDialog(
-//     titlePadding: EdgeInsets.zero,
-//     contentPadding: EdgeInsets.zero,
-//     backgroundColor: Colors.transparent,
-//     barrierDismissible: barrierDismissible,
-//     content: DefaultDialog(bodyWidget: bodyWidget, height: height),
-//     title: "",
-//   );
-// }
+myDefaultDialog(
+    {required context,
+    required Widget bodyWidget,
+    double? height,
+    bool barrierDismissible = true}) {
+  showDialog(
+    context: context,
+    builder: (contextForClose) {
+      return DefaultDialog(bodyWidget: bodyWidget, height: height);
+    },
+  );
+}
 
 class DefaultDialog extends StatelessWidget {
   const DefaultDialog(
@@ -27,7 +25,7 @@ class DefaultDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Column(mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
           decoration: myDefaultDialogBackground(

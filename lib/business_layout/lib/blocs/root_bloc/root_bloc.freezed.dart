@@ -19,25 +19,37 @@ mixin _$RootEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() onInit,
+    required TResult Function() saveFireplaceInLocalStorage,
     required TResult Function(HomeNetworkModel homeNetworkModel)
-        saveFireplaceInLocalStorage,
-    required TResult Function(String keyWifiName) deleteFireplaceInLocalStorage,
+        addFireplaceInLocalStorage,
+    required TResult Function(HomeNetworkModel homeNetworkModel)
+        changeFireplaceDataFromLocalStorage,
+    required TResult Function(String keyWifiName, String keyMacAddress)
+        deleteFireplaceInLocalStorage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onInit,
+    TResult? Function()? saveFireplaceInLocalStorage,
     TResult? Function(HomeNetworkModel homeNetworkModel)?
-        saveFireplaceInLocalStorage,
-    TResult? Function(String keyWifiName)? deleteFireplaceInLocalStorage,
+        addFireplaceInLocalStorage,
+    TResult? Function(HomeNetworkModel homeNetworkModel)?
+        changeFireplaceDataFromLocalStorage,
+    TResult? Function(String keyWifiName, String keyMacAddress)?
+        deleteFireplaceInLocalStorage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onInit,
+    TResult Function()? saveFireplaceInLocalStorage,
     TResult Function(HomeNetworkModel homeNetworkModel)?
-        saveFireplaceInLocalStorage,
-    TResult Function(String keyWifiName)? deleteFireplaceInLocalStorage,
+        addFireplaceInLocalStorage,
+    TResult Function(HomeNetworkModel homeNetworkModel)?
+        changeFireplaceDataFromLocalStorage,
+    TResult Function(String keyWifiName, String keyMacAddress)?
+        deleteFireplaceInLocalStorage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -46,6 +58,11 @@ mixin _$RootEvent {
     required TResult Function(_InitRootEvent value) onInit,
     required TResult Function(_SaveFireplaceInLocalStorageRootEvent value)
         saveFireplaceInLocalStorage,
+    required TResult Function(_AddFireplaceInLocalStorageRootEvent value)
+        addFireplaceInLocalStorage,
+    required TResult Function(
+            _ChangeFireplaceDataFromLocalStorageRootEvent value)
+        changeFireplaceDataFromLocalStorage,
     required TResult Function(_DeleteFireplaceInLocalStorageRootEvent value)
         deleteFireplaceInLocalStorage,
   }) =>
@@ -55,6 +72,10 @@ mixin _$RootEvent {
     TResult? Function(_InitRootEvent value)? onInit,
     TResult? Function(_SaveFireplaceInLocalStorageRootEvent value)?
         saveFireplaceInLocalStorage,
+    TResult? Function(_AddFireplaceInLocalStorageRootEvent value)?
+        addFireplaceInLocalStorage,
+    TResult? Function(_ChangeFireplaceDataFromLocalStorageRootEvent value)?
+        changeFireplaceDataFromLocalStorage,
     TResult? Function(_DeleteFireplaceInLocalStorageRootEvent value)?
         deleteFireplaceInLocalStorage,
   }) =>
@@ -64,6 +85,10 @@ mixin _$RootEvent {
     TResult Function(_InitRootEvent value)? onInit,
     TResult Function(_SaveFireplaceInLocalStorageRootEvent value)?
         saveFireplaceInLocalStorage,
+    TResult Function(_AddFireplaceInLocalStorageRootEvent value)?
+        addFireplaceInLocalStorage,
+    TResult Function(_ChangeFireplaceDataFromLocalStorageRootEvent value)?
+        changeFireplaceDataFromLocalStorage,
     TResult Function(_DeleteFireplaceInLocalStorageRootEvent value)?
         deleteFireplaceInLocalStorage,
     required TResult orElse(),
@@ -127,9 +152,13 @@ class _$_InitRootEvent implements _InitRootEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() onInit,
+    required TResult Function() saveFireplaceInLocalStorage,
     required TResult Function(HomeNetworkModel homeNetworkModel)
-        saveFireplaceInLocalStorage,
-    required TResult Function(String keyWifiName) deleteFireplaceInLocalStorage,
+        addFireplaceInLocalStorage,
+    required TResult Function(HomeNetworkModel homeNetworkModel)
+        changeFireplaceDataFromLocalStorage,
+    required TResult Function(String keyWifiName, String keyMacAddress)
+        deleteFireplaceInLocalStorage,
   }) {
     return onInit();
   }
@@ -138,9 +167,13 @@ class _$_InitRootEvent implements _InitRootEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onInit,
+    TResult? Function()? saveFireplaceInLocalStorage,
     TResult? Function(HomeNetworkModel homeNetworkModel)?
-        saveFireplaceInLocalStorage,
-    TResult? Function(String keyWifiName)? deleteFireplaceInLocalStorage,
+        addFireplaceInLocalStorage,
+    TResult? Function(HomeNetworkModel homeNetworkModel)?
+        changeFireplaceDataFromLocalStorage,
+    TResult? Function(String keyWifiName, String keyMacAddress)?
+        deleteFireplaceInLocalStorage,
   }) {
     return onInit?.call();
   }
@@ -149,9 +182,13 @@ class _$_InitRootEvent implements _InitRootEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onInit,
+    TResult Function()? saveFireplaceInLocalStorage,
     TResult Function(HomeNetworkModel homeNetworkModel)?
-        saveFireplaceInLocalStorage,
-    TResult Function(String keyWifiName)? deleteFireplaceInLocalStorage,
+        addFireplaceInLocalStorage,
+    TResult Function(HomeNetworkModel homeNetworkModel)?
+        changeFireplaceDataFromLocalStorage,
+    TResult Function(String keyWifiName, String keyMacAddress)?
+        deleteFireplaceInLocalStorage,
     required TResult orElse(),
   }) {
     if (onInit != null) {
@@ -166,6 +203,11 @@ class _$_InitRootEvent implements _InitRootEvent {
     required TResult Function(_InitRootEvent value) onInit,
     required TResult Function(_SaveFireplaceInLocalStorageRootEvent value)
         saveFireplaceInLocalStorage,
+    required TResult Function(_AddFireplaceInLocalStorageRootEvent value)
+        addFireplaceInLocalStorage,
+    required TResult Function(
+            _ChangeFireplaceDataFromLocalStorageRootEvent value)
+        changeFireplaceDataFromLocalStorage,
     required TResult Function(_DeleteFireplaceInLocalStorageRootEvent value)
         deleteFireplaceInLocalStorage,
   }) {
@@ -178,6 +220,10 @@ class _$_InitRootEvent implements _InitRootEvent {
     TResult? Function(_InitRootEvent value)? onInit,
     TResult? Function(_SaveFireplaceInLocalStorageRootEvent value)?
         saveFireplaceInLocalStorage,
+    TResult? Function(_AddFireplaceInLocalStorageRootEvent value)?
+        addFireplaceInLocalStorage,
+    TResult? Function(_ChangeFireplaceDataFromLocalStorageRootEvent value)?
+        changeFireplaceDataFromLocalStorage,
     TResult? Function(_DeleteFireplaceInLocalStorageRootEvent value)?
         deleteFireplaceInLocalStorage,
   }) {
@@ -190,6 +236,10 @@ class _$_InitRootEvent implements _InitRootEvent {
     TResult Function(_InitRootEvent value)? onInit,
     TResult Function(_SaveFireplaceInLocalStorageRootEvent value)?
         saveFireplaceInLocalStorage,
+    TResult Function(_AddFireplaceInLocalStorageRootEvent value)?
+        addFireplaceInLocalStorage,
+    TResult Function(_ChangeFireplaceDataFromLocalStorageRootEvent value)?
+        changeFireplaceDataFromLocalStorage,
     TResult Function(_DeleteFireplaceInLocalStorageRootEvent value)?
         deleteFireplaceInLocalStorage,
     required TResult orElse(),
@@ -211,8 +261,6 @@ abstract class _$$_SaveFireplaceInLocalStorageRootEventCopyWith<$Res> {
           _$_SaveFireplaceInLocalStorageRootEvent value,
           $Res Function(_$_SaveFireplaceInLocalStorageRootEvent) then) =
       __$$_SaveFireplaceInLocalStorageRootEventCopyWithImpl<$Res>;
-  @useResult
-  $Res call({HomeNetworkModel homeNetworkModel});
 }
 
 /// @nodoc
@@ -224,89 +272,74 @@ class __$$_SaveFireplaceInLocalStorageRootEventCopyWithImpl<$Res>
       _$_SaveFireplaceInLocalStorageRootEvent _value,
       $Res Function(_$_SaveFireplaceInLocalStorageRootEvent) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? homeNetworkModel = null,
-  }) {
-    return _then(_$_SaveFireplaceInLocalStorageRootEvent(
-      homeNetworkModel: null == homeNetworkModel
-          ? _value.homeNetworkModel
-          : homeNetworkModel // ignore: cast_nullable_to_non_nullable
-              as HomeNetworkModel,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$_SaveFireplaceInLocalStorageRootEvent
     implements _SaveFireplaceInLocalStorageRootEvent {
-  const _$_SaveFireplaceInLocalStorageRootEvent(
-      {required this.homeNetworkModel});
-
-  @override
-  final HomeNetworkModel homeNetworkModel;
+  const _$_SaveFireplaceInLocalStorageRootEvent();
 
   @override
   String toString() {
-    return 'RootEvent.saveFireplaceInLocalStorage(homeNetworkModel: $homeNetworkModel)';
+    return 'RootEvent.saveFireplaceInLocalStorage()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SaveFireplaceInLocalStorageRootEvent &&
-            (identical(other.homeNetworkModel, homeNetworkModel) ||
-                other.homeNetworkModel == homeNetworkModel));
+            other is _$_SaveFireplaceInLocalStorageRootEvent);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, homeNetworkModel);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_SaveFireplaceInLocalStorageRootEventCopyWith<
-          _$_SaveFireplaceInLocalStorageRootEvent>
-      get copyWith => __$$_SaveFireplaceInLocalStorageRootEventCopyWithImpl<
-          _$_SaveFireplaceInLocalStorageRootEvent>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() onInit,
+    required TResult Function() saveFireplaceInLocalStorage,
     required TResult Function(HomeNetworkModel homeNetworkModel)
-        saveFireplaceInLocalStorage,
-    required TResult Function(String keyWifiName) deleteFireplaceInLocalStorage,
+        addFireplaceInLocalStorage,
+    required TResult Function(HomeNetworkModel homeNetworkModel)
+        changeFireplaceDataFromLocalStorage,
+    required TResult Function(String keyWifiName, String keyMacAddress)
+        deleteFireplaceInLocalStorage,
   }) {
-    return saveFireplaceInLocalStorage(homeNetworkModel);
+    return saveFireplaceInLocalStorage();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onInit,
+    TResult? Function()? saveFireplaceInLocalStorage,
     TResult? Function(HomeNetworkModel homeNetworkModel)?
-        saveFireplaceInLocalStorage,
-    TResult? Function(String keyWifiName)? deleteFireplaceInLocalStorage,
+        addFireplaceInLocalStorage,
+    TResult? Function(HomeNetworkModel homeNetworkModel)?
+        changeFireplaceDataFromLocalStorage,
+    TResult? Function(String keyWifiName, String keyMacAddress)?
+        deleteFireplaceInLocalStorage,
   }) {
-    return saveFireplaceInLocalStorage?.call(homeNetworkModel);
+    return saveFireplaceInLocalStorage?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onInit,
+    TResult Function()? saveFireplaceInLocalStorage,
     TResult Function(HomeNetworkModel homeNetworkModel)?
-        saveFireplaceInLocalStorage,
-    TResult Function(String keyWifiName)? deleteFireplaceInLocalStorage,
+        addFireplaceInLocalStorage,
+    TResult Function(HomeNetworkModel homeNetworkModel)?
+        changeFireplaceDataFromLocalStorage,
+    TResult Function(String keyWifiName, String keyMacAddress)?
+        deleteFireplaceInLocalStorage,
     required TResult orElse(),
   }) {
     if (saveFireplaceInLocalStorage != null) {
-      return saveFireplaceInLocalStorage(homeNetworkModel);
+      return saveFireplaceInLocalStorage();
     }
     return orElse();
   }
@@ -317,6 +350,11 @@ class _$_SaveFireplaceInLocalStorageRootEvent
     required TResult Function(_InitRootEvent value) onInit,
     required TResult Function(_SaveFireplaceInLocalStorageRootEvent value)
         saveFireplaceInLocalStorage,
+    required TResult Function(_AddFireplaceInLocalStorageRootEvent value)
+        addFireplaceInLocalStorage,
+    required TResult Function(
+            _ChangeFireplaceDataFromLocalStorageRootEvent value)
+        changeFireplaceDataFromLocalStorage,
     required TResult Function(_DeleteFireplaceInLocalStorageRootEvent value)
         deleteFireplaceInLocalStorage,
   }) {
@@ -329,6 +367,10 @@ class _$_SaveFireplaceInLocalStorageRootEvent
     TResult? Function(_InitRootEvent value)? onInit,
     TResult? Function(_SaveFireplaceInLocalStorageRootEvent value)?
         saveFireplaceInLocalStorage,
+    TResult? Function(_AddFireplaceInLocalStorageRootEvent value)?
+        addFireplaceInLocalStorage,
+    TResult? Function(_ChangeFireplaceDataFromLocalStorageRootEvent value)?
+        changeFireplaceDataFromLocalStorage,
     TResult? Function(_DeleteFireplaceInLocalStorageRootEvent value)?
         deleteFireplaceInLocalStorage,
   }) {
@@ -341,6 +383,10 @@ class _$_SaveFireplaceInLocalStorageRootEvent
     TResult Function(_InitRootEvent value)? onInit,
     TResult Function(_SaveFireplaceInLocalStorageRootEvent value)?
         saveFireplaceInLocalStorage,
+    TResult Function(_AddFireplaceInLocalStorageRootEvent value)?
+        addFireplaceInLocalStorage,
+    TResult Function(_ChangeFireplaceDataFromLocalStorageRootEvent value)?
+        changeFireplaceDataFromLocalStorage,
     TResult Function(_DeleteFireplaceInLocalStorageRootEvent value)?
         deleteFireplaceInLocalStorage,
     required TResult orElse(),
@@ -353,14 +399,398 @@ class _$_SaveFireplaceInLocalStorageRootEvent
 }
 
 abstract class _SaveFireplaceInLocalStorageRootEvent implements RootEvent {
-  const factory _SaveFireplaceInLocalStorageRootEvent(
-          {required final HomeNetworkModel homeNetworkModel}) =
+  const factory _SaveFireplaceInLocalStorageRootEvent() =
       _$_SaveFireplaceInLocalStorageRootEvent;
+}
+
+/// @nodoc
+abstract class _$$_AddFireplaceInLocalStorageRootEventCopyWith<$Res> {
+  factory _$$_AddFireplaceInLocalStorageRootEventCopyWith(
+          _$_AddFireplaceInLocalStorageRootEvent value,
+          $Res Function(_$_AddFireplaceInLocalStorageRootEvent) then) =
+      __$$_AddFireplaceInLocalStorageRootEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({HomeNetworkModel homeNetworkModel});
+
+  $HomeNetworkModelCopyWith<$Res> get homeNetworkModel;
+}
+
+/// @nodoc
+class __$$_AddFireplaceInLocalStorageRootEventCopyWithImpl<$Res>
+    extends _$RootEventCopyWithImpl<$Res,
+        _$_AddFireplaceInLocalStorageRootEvent>
+    implements _$$_AddFireplaceInLocalStorageRootEventCopyWith<$Res> {
+  __$$_AddFireplaceInLocalStorageRootEventCopyWithImpl(
+      _$_AddFireplaceInLocalStorageRootEvent _value,
+      $Res Function(_$_AddFireplaceInLocalStorageRootEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? homeNetworkModel = null,
+  }) {
+    return _then(_$_AddFireplaceInLocalStorageRootEvent(
+      homeNetworkModel: null == homeNetworkModel
+          ? _value.homeNetworkModel
+          : homeNetworkModel // ignore: cast_nullable_to_non_nullable
+              as HomeNetworkModel,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $HomeNetworkModelCopyWith<$Res> get homeNetworkModel {
+    return $HomeNetworkModelCopyWith<$Res>(_value.homeNetworkModel, (value) {
+      return _then(_value.copyWith(homeNetworkModel: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_AddFireplaceInLocalStorageRootEvent
+    implements _AddFireplaceInLocalStorageRootEvent {
+  const _$_AddFireplaceInLocalStorageRootEvent(
+      {required this.homeNetworkModel});
+
+  @override
+  final HomeNetworkModel homeNetworkModel;
+
+  @override
+  String toString() {
+    return 'RootEvent.addFireplaceInLocalStorage(homeNetworkModel: $homeNetworkModel)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_AddFireplaceInLocalStorageRootEvent &&
+            (identical(other.homeNetworkModel, homeNetworkModel) ||
+                other.homeNetworkModel == homeNetworkModel));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, homeNetworkModel);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_AddFireplaceInLocalStorageRootEventCopyWith<
+          _$_AddFireplaceInLocalStorageRootEvent>
+      get copyWith => __$$_AddFireplaceInLocalStorageRootEventCopyWithImpl<
+          _$_AddFireplaceInLocalStorageRootEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() onInit,
+    required TResult Function() saveFireplaceInLocalStorage,
+    required TResult Function(HomeNetworkModel homeNetworkModel)
+        addFireplaceInLocalStorage,
+    required TResult Function(HomeNetworkModel homeNetworkModel)
+        changeFireplaceDataFromLocalStorage,
+    required TResult Function(String keyWifiName, String keyMacAddress)
+        deleteFireplaceInLocalStorage,
+  }) {
+    return addFireplaceInLocalStorage(homeNetworkModel);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? onInit,
+    TResult? Function()? saveFireplaceInLocalStorage,
+    TResult? Function(HomeNetworkModel homeNetworkModel)?
+        addFireplaceInLocalStorage,
+    TResult? Function(HomeNetworkModel homeNetworkModel)?
+        changeFireplaceDataFromLocalStorage,
+    TResult? Function(String keyWifiName, String keyMacAddress)?
+        deleteFireplaceInLocalStorage,
+  }) {
+    return addFireplaceInLocalStorage?.call(homeNetworkModel);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? onInit,
+    TResult Function()? saveFireplaceInLocalStorage,
+    TResult Function(HomeNetworkModel homeNetworkModel)?
+        addFireplaceInLocalStorage,
+    TResult Function(HomeNetworkModel homeNetworkModel)?
+        changeFireplaceDataFromLocalStorage,
+    TResult Function(String keyWifiName, String keyMacAddress)?
+        deleteFireplaceInLocalStorage,
+    required TResult orElse(),
+  }) {
+    if (addFireplaceInLocalStorage != null) {
+      return addFireplaceInLocalStorage(homeNetworkModel);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitRootEvent value) onInit,
+    required TResult Function(_SaveFireplaceInLocalStorageRootEvent value)
+        saveFireplaceInLocalStorage,
+    required TResult Function(_AddFireplaceInLocalStorageRootEvent value)
+        addFireplaceInLocalStorage,
+    required TResult Function(
+            _ChangeFireplaceDataFromLocalStorageRootEvent value)
+        changeFireplaceDataFromLocalStorage,
+    required TResult Function(_DeleteFireplaceInLocalStorageRootEvent value)
+        deleteFireplaceInLocalStorage,
+  }) {
+    return addFireplaceInLocalStorage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InitRootEvent value)? onInit,
+    TResult? Function(_SaveFireplaceInLocalStorageRootEvent value)?
+        saveFireplaceInLocalStorage,
+    TResult? Function(_AddFireplaceInLocalStorageRootEvent value)?
+        addFireplaceInLocalStorage,
+    TResult? Function(_ChangeFireplaceDataFromLocalStorageRootEvent value)?
+        changeFireplaceDataFromLocalStorage,
+    TResult? Function(_DeleteFireplaceInLocalStorageRootEvent value)?
+        deleteFireplaceInLocalStorage,
+  }) {
+    return addFireplaceInLocalStorage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitRootEvent value)? onInit,
+    TResult Function(_SaveFireplaceInLocalStorageRootEvent value)?
+        saveFireplaceInLocalStorage,
+    TResult Function(_AddFireplaceInLocalStorageRootEvent value)?
+        addFireplaceInLocalStorage,
+    TResult Function(_ChangeFireplaceDataFromLocalStorageRootEvent value)?
+        changeFireplaceDataFromLocalStorage,
+    TResult Function(_DeleteFireplaceInLocalStorageRootEvent value)?
+        deleteFireplaceInLocalStorage,
+    required TResult orElse(),
+  }) {
+    if (addFireplaceInLocalStorage != null) {
+      return addFireplaceInLocalStorage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AddFireplaceInLocalStorageRootEvent implements RootEvent {
+  const factory _AddFireplaceInLocalStorageRootEvent(
+          {required final HomeNetworkModel homeNetworkModel}) =
+      _$_AddFireplaceInLocalStorageRootEvent;
 
   HomeNetworkModel get homeNetworkModel;
   @JsonKey(ignore: true)
-  _$$_SaveFireplaceInLocalStorageRootEventCopyWith<
-          _$_SaveFireplaceInLocalStorageRootEvent>
+  _$$_AddFireplaceInLocalStorageRootEventCopyWith<
+          _$_AddFireplaceInLocalStorageRootEvent>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_ChangeFireplaceDataFromLocalStorageRootEventCopyWith<$Res> {
+  factory _$$_ChangeFireplaceDataFromLocalStorageRootEventCopyWith(
+          _$_ChangeFireplaceDataFromLocalStorageRootEvent value,
+          $Res Function(_$_ChangeFireplaceDataFromLocalStorageRootEvent) then) =
+      __$$_ChangeFireplaceDataFromLocalStorageRootEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({HomeNetworkModel homeNetworkModel});
+
+  $HomeNetworkModelCopyWith<$Res> get homeNetworkModel;
+}
+
+/// @nodoc
+class __$$_ChangeFireplaceDataFromLocalStorageRootEventCopyWithImpl<$Res>
+    extends _$RootEventCopyWithImpl<$Res,
+        _$_ChangeFireplaceDataFromLocalStorageRootEvent>
+    implements _$$_ChangeFireplaceDataFromLocalStorageRootEventCopyWith<$Res> {
+  __$$_ChangeFireplaceDataFromLocalStorageRootEventCopyWithImpl(
+      _$_ChangeFireplaceDataFromLocalStorageRootEvent _value,
+      $Res Function(_$_ChangeFireplaceDataFromLocalStorageRootEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? homeNetworkModel = null,
+  }) {
+    return _then(_$_ChangeFireplaceDataFromLocalStorageRootEvent(
+      homeNetworkModel: null == homeNetworkModel
+          ? _value.homeNetworkModel
+          : homeNetworkModel // ignore: cast_nullable_to_non_nullable
+              as HomeNetworkModel,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $HomeNetworkModelCopyWith<$Res> get homeNetworkModel {
+    return $HomeNetworkModelCopyWith<$Res>(_value.homeNetworkModel, (value) {
+      return _then(_value.copyWith(homeNetworkModel: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_ChangeFireplaceDataFromLocalStorageRootEvent
+    implements _ChangeFireplaceDataFromLocalStorageRootEvent {
+  const _$_ChangeFireplaceDataFromLocalStorageRootEvent(
+      {required this.homeNetworkModel});
+
+  @override
+  final HomeNetworkModel homeNetworkModel;
+
+  @override
+  String toString() {
+    return 'RootEvent.changeFireplaceDataFromLocalStorage(homeNetworkModel: $homeNetworkModel)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeFireplaceDataFromLocalStorageRootEvent &&
+            (identical(other.homeNetworkModel, homeNetworkModel) ||
+                other.homeNetworkModel == homeNetworkModel));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, homeNetworkModel);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ChangeFireplaceDataFromLocalStorageRootEventCopyWith<
+          _$_ChangeFireplaceDataFromLocalStorageRootEvent>
+      get copyWith =>
+          __$$_ChangeFireplaceDataFromLocalStorageRootEventCopyWithImpl<
+                  _$_ChangeFireplaceDataFromLocalStorageRootEvent>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() onInit,
+    required TResult Function() saveFireplaceInLocalStorage,
+    required TResult Function(HomeNetworkModel homeNetworkModel)
+        addFireplaceInLocalStorage,
+    required TResult Function(HomeNetworkModel homeNetworkModel)
+        changeFireplaceDataFromLocalStorage,
+    required TResult Function(String keyWifiName, String keyMacAddress)
+        deleteFireplaceInLocalStorage,
+  }) {
+    return changeFireplaceDataFromLocalStorage(homeNetworkModel);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? onInit,
+    TResult? Function()? saveFireplaceInLocalStorage,
+    TResult? Function(HomeNetworkModel homeNetworkModel)?
+        addFireplaceInLocalStorage,
+    TResult? Function(HomeNetworkModel homeNetworkModel)?
+        changeFireplaceDataFromLocalStorage,
+    TResult? Function(String keyWifiName, String keyMacAddress)?
+        deleteFireplaceInLocalStorage,
+  }) {
+    return changeFireplaceDataFromLocalStorage?.call(homeNetworkModel);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? onInit,
+    TResult Function()? saveFireplaceInLocalStorage,
+    TResult Function(HomeNetworkModel homeNetworkModel)?
+        addFireplaceInLocalStorage,
+    TResult Function(HomeNetworkModel homeNetworkModel)?
+        changeFireplaceDataFromLocalStorage,
+    TResult Function(String keyWifiName, String keyMacAddress)?
+        deleteFireplaceInLocalStorage,
+    required TResult orElse(),
+  }) {
+    if (changeFireplaceDataFromLocalStorage != null) {
+      return changeFireplaceDataFromLocalStorage(homeNetworkModel);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitRootEvent value) onInit,
+    required TResult Function(_SaveFireplaceInLocalStorageRootEvent value)
+        saveFireplaceInLocalStorage,
+    required TResult Function(_AddFireplaceInLocalStorageRootEvent value)
+        addFireplaceInLocalStorage,
+    required TResult Function(
+            _ChangeFireplaceDataFromLocalStorageRootEvent value)
+        changeFireplaceDataFromLocalStorage,
+    required TResult Function(_DeleteFireplaceInLocalStorageRootEvent value)
+        deleteFireplaceInLocalStorage,
+  }) {
+    return changeFireplaceDataFromLocalStorage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InitRootEvent value)? onInit,
+    TResult? Function(_SaveFireplaceInLocalStorageRootEvent value)?
+        saveFireplaceInLocalStorage,
+    TResult? Function(_AddFireplaceInLocalStorageRootEvent value)?
+        addFireplaceInLocalStorage,
+    TResult? Function(_ChangeFireplaceDataFromLocalStorageRootEvent value)?
+        changeFireplaceDataFromLocalStorage,
+    TResult? Function(_DeleteFireplaceInLocalStorageRootEvent value)?
+        deleteFireplaceInLocalStorage,
+  }) {
+    return changeFireplaceDataFromLocalStorage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitRootEvent value)? onInit,
+    TResult Function(_SaveFireplaceInLocalStorageRootEvent value)?
+        saveFireplaceInLocalStorage,
+    TResult Function(_AddFireplaceInLocalStorageRootEvent value)?
+        addFireplaceInLocalStorage,
+    TResult Function(_ChangeFireplaceDataFromLocalStorageRootEvent value)?
+        changeFireplaceDataFromLocalStorage,
+    TResult Function(_DeleteFireplaceInLocalStorageRootEvent value)?
+        deleteFireplaceInLocalStorage,
+    required TResult orElse(),
+  }) {
+    if (changeFireplaceDataFromLocalStorage != null) {
+      return changeFireplaceDataFromLocalStorage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeFireplaceDataFromLocalStorageRootEvent
+    implements RootEvent {
+  const factory _ChangeFireplaceDataFromLocalStorageRootEvent(
+          {required final HomeNetworkModel homeNetworkModel}) =
+      _$_ChangeFireplaceDataFromLocalStorageRootEvent;
+
+  HomeNetworkModel get homeNetworkModel;
+  @JsonKey(ignore: true)
+  _$$_ChangeFireplaceDataFromLocalStorageRootEventCopyWith<
+          _$_ChangeFireplaceDataFromLocalStorageRootEvent>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -371,7 +801,7 @@ abstract class _$$_DeleteFireplaceInLocalStorageRootEventCopyWith<$Res> {
           $Res Function(_$_DeleteFireplaceInLocalStorageRootEvent) then) =
       __$$_DeleteFireplaceInLocalStorageRootEventCopyWithImpl<$Res>;
   @useResult
-  $Res call({String keyWifiName});
+  $Res call({String keyWifiName, String keyMacAddress});
 }
 
 /// @nodoc
@@ -388,11 +818,16 @@ class __$$_DeleteFireplaceInLocalStorageRootEventCopyWithImpl<$Res>
   @override
   $Res call({
     Object? keyWifiName = null,
+    Object? keyMacAddress = null,
   }) {
     return _then(_$_DeleteFireplaceInLocalStorageRootEvent(
       keyWifiName: null == keyWifiName
           ? _value.keyWifiName
           : keyWifiName // ignore: cast_nullable_to_non_nullable
+              as String,
+      keyMacAddress: null == keyMacAddress
+          ? _value.keyMacAddress
+          : keyMacAddress // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -402,14 +837,17 @@ class __$$_DeleteFireplaceInLocalStorageRootEventCopyWithImpl<$Res>
 
 class _$_DeleteFireplaceInLocalStorageRootEvent
     implements _DeleteFireplaceInLocalStorageRootEvent {
-  const _$_DeleteFireplaceInLocalStorageRootEvent({required this.keyWifiName});
+  const _$_DeleteFireplaceInLocalStorageRootEvent(
+      {required this.keyWifiName, required this.keyMacAddress});
 
   @override
   final String keyWifiName;
+  @override
+  final String keyMacAddress;
 
   @override
   String toString() {
-    return 'RootEvent.deleteFireplaceInLocalStorage(keyWifiName: $keyWifiName)';
+    return 'RootEvent.deleteFireplaceInLocalStorage(keyWifiName: $keyWifiName, keyMacAddress: $keyMacAddress)';
   }
 
   @override
@@ -418,11 +856,13 @@ class _$_DeleteFireplaceInLocalStorageRootEvent
         (other.runtimeType == runtimeType &&
             other is _$_DeleteFireplaceInLocalStorageRootEvent &&
             (identical(other.keyWifiName, keyWifiName) ||
-                other.keyWifiName == keyWifiName));
+                other.keyWifiName == keyWifiName) &&
+            (identical(other.keyMacAddress, keyMacAddress) ||
+                other.keyMacAddress == keyMacAddress));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, keyWifiName);
+  int get hashCode => Object.hash(runtimeType, keyWifiName, keyMacAddress);
 
   @JsonKey(ignore: true)
   @override
@@ -436,35 +876,47 @@ class _$_DeleteFireplaceInLocalStorageRootEvent
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() onInit,
+    required TResult Function() saveFireplaceInLocalStorage,
     required TResult Function(HomeNetworkModel homeNetworkModel)
-        saveFireplaceInLocalStorage,
-    required TResult Function(String keyWifiName) deleteFireplaceInLocalStorage,
+        addFireplaceInLocalStorage,
+    required TResult Function(HomeNetworkModel homeNetworkModel)
+        changeFireplaceDataFromLocalStorage,
+    required TResult Function(String keyWifiName, String keyMacAddress)
+        deleteFireplaceInLocalStorage,
   }) {
-    return deleteFireplaceInLocalStorage(keyWifiName);
+    return deleteFireplaceInLocalStorage(keyWifiName, keyMacAddress);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onInit,
+    TResult? Function()? saveFireplaceInLocalStorage,
     TResult? Function(HomeNetworkModel homeNetworkModel)?
-        saveFireplaceInLocalStorage,
-    TResult? Function(String keyWifiName)? deleteFireplaceInLocalStorage,
+        addFireplaceInLocalStorage,
+    TResult? Function(HomeNetworkModel homeNetworkModel)?
+        changeFireplaceDataFromLocalStorage,
+    TResult? Function(String keyWifiName, String keyMacAddress)?
+        deleteFireplaceInLocalStorage,
   }) {
-    return deleteFireplaceInLocalStorage?.call(keyWifiName);
+    return deleteFireplaceInLocalStorage?.call(keyWifiName, keyMacAddress);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onInit,
+    TResult Function()? saveFireplaceInLocalStorage,
     TResult Function(HomeNetworkModel homeNetworkModel)?
-        saveFireplaceInLocalStorage,
-    TResult Function(String keyWifiName)? deleteFireplaceInLocalStorage,
+        addFireplaceInLocalStorage,
+    TResult Function(HomeNetworkModel homeNetworkModel)?
+        changeFireplaceDataFromLocalStorage,
+    TResult Function(String keyWifiName, String keyMacAddress)?
+        deleteFireplaceInLocalStorage,
     required TResult orElse(),
   }) {
     if (deleteFireplaceInLocalStorage != null) {
-      return deleteFireplaceInLocalStorage(keyWifiName);
+      return deleteFireplaceInLocalStorage(keyWifiName, keyMacAddress);
     }
     return orElse();
   }
@@ -475,6 +927,11 @@ class _$_DeleteFireplaceInLocalStorageRootEvent
     required TResult Function(_InitRootEvent value) onInit,
     required TResult Function(_SaveFireplaceInLocalStorageRootEvent value)
         saveFireplaceInLocalStorage,
+    required TResult Function(_AddFireplaceInLocalStorageRootEvent value)
+        addFireplaceInLocalStorage,
+    required TResult Function(
+            _ChangeFireplaceDataFromLocalStorageRootEvent value)
+        changeFireplaceDataFromLocalStorage,
     required TResult Function(_DeleteFireplaceInLocalStorageRootEvent value)
         deleteFireplaceInLocalStorage,
   }) {
@@ -487,6 +944,10 @@ class _$_DeleteFireplaceInLocalStorageRootEvent
     TResult? Function(_InitRootEvent value)? onInit,
     TResult? Function(_SaveFireplaceInLocalStorageRootEvent value)?
         saveFireplaceInLocalStorage,
+    TResult? Function(_AddFireplaceInLocalStorageRootEvent value)?
+        addFireplaceInLocalStorage,
+    TResult? Function(_ChangeFireplaceDataFromLocalStorageRootEvent value)?
+        changeFireplaceDataFromLocalStorage,
     TResult? Function(_DeleteFireplaceInLocalStorageRootEvent value)?
         deleteFireplaceInLocalStorage,
   }) {
@@ -499,6 +960,10 @@ class _$_DeleteFireplaceInLocalStorageRootEvent
     TResult Function(_InitRootEvent value)? onInit,
     TResult Function(_SaveFireplaceInLocalStorageRootEvent value)?
         saveFireplaceInLocalStorage,
+    TResult Function(_AddFireplaceInLocalStorageRootEvent value)?
+        addFireplaceInLocalStorage,
+    TResult Function(_ChangeFireplaceDataFromLocalStorageRootEvent value)?
+        changeFireplaceDataFromLocalStorage,
     TResult Function(_DeleteFireplaceInLocalStorageRootEvent value)?
         deleteFireplaceInLocalStorage,
     required TResult orElse(),
@@ -512,10 +977,12 @@ class _$_DeleteFireplaceInLocalStorageRootEvent
 
 abstract class _DeleteFireplaceInLocalStorageRootEvent implements RootEvent {
   const factory _DeleteFireplaceInLocalStorageRootEvent(
-          {required final String keyWifiName}) =
+          {required final String keyWifiName,
+          required final String keyMacAddress}) =
       _$_DeleteFireplaceInLocalStorageRootEvent;
 
   String get keyWifiName;
+  String get keyMacAddress;
   @JsonKey(ignore: true)
   _$$_DeleteFireplaceInLocalStorageRootEventCopyWith<
           _$_DeleteFireplaceInLocalStorageRootEvent>
@@ -528,7 +995,10 @@ mixin _$RootState {
   FailModel? get failModel => throw _privateConstructorUsedError;
   dynamic get wifiName => throw _privateConstructorUsedError;
   dynamic get ipAddress => throw _privateConstructorUsedError;
-  HomeNetworkModel? get fromLocalStorage => throw _privateConstructorUsedError;
+  HomeNetworkModel? get homeNetworkDataToLocalStorage =>
+      throw _privateConstructorUsedError;
+  List<HomeNetworkModel>? get listFireplacesFromLocalStorage =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $RootStateCopyWith<RootState> get copyWith =>
@@ -545,9 +1015,11 @@ abstract class $RootStateCopyWith<$Res> {
       FailModel? failModel,
       dynamic wifiName,
       dynamic ipAddress,
-      HomeNetworkModel? fromLocalStorage});
+      HomeNetworkModel? homeNetworkDataToLocalStorage,
+      List<HomeNetworkModel>? listFireplacesFromLocalStorage});
 
   $FailModelCopyWith<$Res>? get failModel;
+  $HomeNetworkModelCopyWith<$Res>? get homeNetworkDataToLocalStorage;
 }
 
 /// @nodoc
@@ -567,7 +1039,8 @@ class _$RootStateCopyWithImpl<$Res, $Val extends RootState>
     Object? failModel = freezed,
     Object? wifiName = freezed,
     Object? ipAddress = freezed,
-    Object? fromLocalStorage = freezed,
+    Object? homeNetworkDataToLocalStorage = freezed,
+    Object? listFireplacesFromLocalStorage = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: null == isLoading
@@ -586,10 +1059,14 @@ class _$RootStateCopyWithImpl<$Res, $Val extends RootState>
           ? _value.ipAddress
           : ipAddress // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      fromLocalStorage: freezed == fromLocalStorage
-          ? _value.fromLocalStorage
-          : fromLocalStorage // ignore: cast_nullable_to_non_nullable
+      homeNetworkDataToLocalStorage: freezed == homeNetworkDataToLocalStorage
+          ? _value.homeNetworkDataToLocalStorage
+          : homeNetworkDataToLocalStorage // ignore: cast_nullable_to_non_nullable
               as HomeNetworkModel?,
+      listFireplacesFromLocalStorage: freezed == listFireplacesFromLocalStorage
+          ? _value.listFireplacesFromLocalStorage
+          : listFireplacesFromLocalStorage // ignore: cast_nullable_to_non_nullable
+              as List<HomeNetworkModel>?,
     ) as $Val);
   }
 
@@ -602,6 +1079,20 @@ class _$RootStateCopyWithImpl<$Res, $Val extends RootState>
 
     return $FailModelCopyWith<$Res>(_value.failModel!, (value) {
       return _then(_value.copyWith(failModel: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $HomeNetworkModelCopyWith<$Res>? get homeNetworkDataToLocalStorage {
+    if (_value.homeNetworkDataToLocalStorage == null) {
+      return null;
+    }
+
+    return $HomeNetworkModelCopyWith<$Res>(
+        _value.homeNetworkDataToLocalStorage!, (value) {
+      return _then(
+          _value.copyWith(homeNetworkDataToLocalStorage: value) as $Val);
     });
   }
 }
@@ -618,10 +1109,13 @@ abstract class _$$_RootStateCopyWith<$Res> implements $RootStateCopyWith<$Res> {
       FailModel? failModel,
       dynamic wifiName,
       dynamic ipAddress,
-      HomeNetworkModel? fromLocalStorage});
+      HomeNetworkModel? homeNetworkDataToLocalStorage,
+      List<HomeNetworkModel>? listFireplacesFromLocalStorage});
 
   @override
   $FailModelCopyWith<$Res>? get failModel;
+  @override
+  $HomeNetworkModelCopyWith<$Res>? get homeNetworkDataToLocalStorage;
 }
 
 /// @nodoc
@@ -639,7 +1133,8 @@ class __$$_RootStateCopyWithImpl<$Res>
     Object? failModel = freezed,
     Object? wifiName = freezed,
     Object? ipAddress = freezed,
-    Object? fromLocalStorage = freezed,
+    Object? homeNetworkDataToLocalStorage = freezed,
+    Object? listFireplacesFromLocalStorage = freezed,
   }) {
     return _then(_$_RootState(
       isLoading: null == isLoading
@@ -652,10 +1147,14 @@ class __$$_RootStateCopyWithImpl<$Res>
               as FailModel?,
       wifiName: freezed == wifiName ? _value.wifiName! : wifiName,
       ipAddress: freezed == ipAddress ? _value.ipAddress! : ipAddress,
-      fromLocalStorage: freezed == fromLocalStorage
-          ? _value.fromLocalStorage
-          : fromLocalStorage // ignore: cast_nullable_to_non_nullable
+      homeNetworkDataToLocalStorage: freezed == homeNetworkDataToLocalStorage
+          ? _value.homeNetworkDataToLocalStorage
+          : homeNetworkDataToLocalStorage // ignore: cast_nullable_to_non_nullable
               as HomeNetworkModel?,
+      listFireplacesFromLocalStorage: freezed == listFireplacesFromLocalStorage
+          ? _value._listFireplacesFromLocalStorage
+          : listFireplacesFromLocalStorage // ignore: cast_nullable_to_non_nullable
+              as List<HomeNetworkModel>?,
     ));
   }
 }
@@ -668,7 +1167,9 @@ class _$_RootState implements _RootState {
       this.failModel,
       this.wifiName = "",
       this.ipAddress = "",
-      this.fromLocalStorage});
+      this.homeNetworkDataToLocalStorage,
+      final List<HomeNetworkModel>? listFireplacesFromLocalStorage})
+      : _listFireplacesFromLocalStorage = listFireplacesFromLocalStorage;
 
   @override
   @JsonKey()
@@ -682,11 +1183,21 @@ class _$_RootState implements _RootState {
   @JsonKey()
   final dynamic ipAddress;
   @override
-  final HomeNetworkModel? fromLocalStorage;
+  final HomeNetworkModel? homeNetworkDataToLocalStorage;
+  final List<HomeNetworkModel>? _listFireplacesFromLocalStorage;
+  @override
+  List<HomeNetworkModel>? get listFireplacesFromLocalStorage {
+    final value = _listFireplacesFromLocalStorage;
+    if (value == null) return null;
+    if (_listFireplacesFromLocalStorage is EqualUnmodifiableListView)
+      return _listFireplacesFromLocalStorage;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
-    return 'RootState(isLoading: $isLoading, failModel: $failModel, wifiName: $wifiName, ipAddress: $ipAddress, fromLocalStorage: $fromLocalStorage)';
+    return 'RootState(isLoading: $isLoading, failModel: $failModel, wifiName: $wifiName, ipAddress: $ipAddress, homeNetworkDataToLocalStorage: $homeNetworkDataToLocalStorage, listFireplacesFromLocalStorage: $listFireplacesFromLocalStorage)';
   }
 
   @override
@@ -700,8 +1211,13 @@ class _$_RootState implements _RootState {
                 other.failModel == failModel) &&
             const DeepCollectionEquality().equals(other.wifiName, wifiName) &&
             const DeepCollectionEquality().equals(other.ipAddress, ipAddress) &&
-            (identical(other.fromLocalStorage, fromLocalStorage) ||
-                other.fromLocalStorage == fromLocalStorage));
+            (identical(other.homeNetworkDataToLocalStorage,
+                    homeNetworkDataToLocalStorage) ||
+                other.homeNetworkDataToLocalStorage ==
+                    homeNetworkDataToLocalStorage) &&
+            const DeepCollectionEquality().equals(
+                other._listFireplacesFromLocalStorage,
+                _listFireplacesFromLocalStorage));
   }
 
   @override
@@ -711,7 +1227,8 @@ class _$_RootState implements _RootState {
       failModel,
       const DeepCollectionEquality().hash(wifiName),
       const DeepCollectionEquality().hash(ipAddress),
-      fromLocalStorage);
+      homeNetworkDataToLocalStorage,
+      const DeepCollectionEquality().hash(_listFireplacesFromLocalStorage));
 
   @JsonKey(ignore: true)
   @override
@@ -722,11 +1239,13 @@ class _$_RootState implements _RootState {
 
 abstract class _RootState implements RootState {
   const factory _RootState(
-      {final bool isLoading,
-      final FailModel? failModel,
-      final dynamic wifiName,
-      final dynamic ipAddress,
-      final HomeNetworkModel? fromLocalStorage}) = _$_RootState;
+          {final bool isLoading,
+          final FailModel? failModel,
+          final dynamic wifiName,
+          final dynamic ipAddress,
+          final HomeNetworkModel? homeNetworkDataToLocalStorage,
+          final List<HomeNetworkModel>? listFireplacesFromLocalStorage}) =
+      _$_RootState;
 
   @override
   bool get isLoading;
@@ -737,7 +1256,9 @@ abstract class _RootState implements RootState {
   @override
   dynamic get ipAddress;
   @override
-  HomeNetworkModel? get fromLocalStorage;
+  HomeNetworkModel? get homeNetworkDataToLocalStorage;
+  @override
+  List<HomeNetworkModel>? get listFireplacesFromLocalStorage;
   @override
   @JsonKey(ignore: true)
   _$$_RootStateCopyWith<_$_RootState> get copyWith =>

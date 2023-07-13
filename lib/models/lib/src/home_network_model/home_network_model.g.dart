@@ -6,17 +6,17 @@ part of 'home_network_model.dart';
 // TypeAdapterGenerator
 // **************************************************************************
 
-class HomeNetworkModelAdapter extends TypeAdapter<HomeNetworkModel> {
+class HomeNetworkModelAdapter extends TypeAdapter<_$_HomeNetworkModel> {
   @override
   final int typeId = 0;
 
   @override
-  HomeNetworkModel read(BinaryReader reader) {
+  _$_HomeNetworkModel read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return HomeNetworkModel(
+    return _$_HomeNetworkModel(
       customName: fields[0] as String,
       nameHomeWifiNetwork: fields[1] as String,
       nameFromHardListWifiName: fields[2] as String,
@@ -27,7 +27,7 @@ class HomeNetworkModelAdapter extends TypeAdapter<HomeNetworkModel> {
   }
 
   @override
-  void write(BinaryWriter writer, HomeNetworkModel obj) {
+  void write(BinaryWriter writer, _$_HomeNetworkModel obj) {
     writer
       ..writeByte(6)
       ..writeByte(0)

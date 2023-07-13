@@ -7,6 +7,7 @@ class RootState with _$RootState {
     FailModel? failModel,
     @Default("") wifiName,
     @Default("") ipAddress,
-    HomeNetworkModel? fromLocalStorage,
+    HomeNetworkModel? homeNetworkDataToLocalStorage,
+    List<HomeNetworkModel>? listFireplacesFromLocalStorage,
   }) = _RootState;
 }

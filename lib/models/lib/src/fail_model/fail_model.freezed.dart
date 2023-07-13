@@ -19,6 +19,7 @@ mixin _$FailModel {
   String get failMessage => throw _privateConstructorUsedError;
   String get descriptionFail => throw _privateConstructorUsedError;
   int get errorCode => throw _privateConstructorUsedError;
+  VoidCallback? get onPressCallback => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $FailModelCopyWith<FailModel> get copyWith =>
@@ -30,7 +31,11 @@ abstract class $FailModelCopyWith<$Res> {
   factory $FailModelCopyWith(FailModel value, $Res Function(FailModel) then) =
       _$FailModelCopyWithImpl<$Res, FailModel>;
   @useResult
-  $Res call({String failMessage, String descriptionFail, int errorCode});
+  $Res call(
+      {String failMessage,
+      String descriptionFail,
+      int errorCode,
+      VoidCallback? onPressCallback});
 }
 
 /// @nodoc
@@ -49,6 +54,7 @@ class _$FailModelCopyWithImpl<$Res, $Val extends FailModel>
     Object? failMessage = null,
     Object? descriptionFail = null,
     Object? errorCode = null,
+    Object? onPressCallback = freezed,
   }) {
     return _then(_value.copyWith(
       failMessage: null == failMessage
@@ -63,6 +69,10 @@ class _$FailModelCopyWithImpl<$Res, $Val extends FailModel>
           ? _value.errorCode
           : errorCode // ignore: cast_nullable_to_non_nullable
               as int,
+      onPressCallback: freezed == onPressCallback
+          ? _value.onPressCallback
+          : onPressCallback // ignore: cast_nullable_to_non_nullable
+              as VoidCallback?,
     ) as $Val);
   }
 }
@@ -74,7 +84,11 @@ abstract class _$$_FailModelCopyWith<$Res> implements $FailModelCopyWith<$Res> {
       __$$_FailModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String failMessage, String descriptionFail, int errorCode});
+  $Res call(
+      {String failMessage,
+      String descriptionFail,
+      int errorCode,
+      VoidCallback? onPressCallback});
 }
 
 /// @nodoc
@@ -91,6 +105,7 @@ class __$$_FailModelCopyWithImpl<$Res>
     Object? failMessage = null,
     Object? descriptionFail = null,
     Object? errorCode = null,
+    Object? onPressCallback = freezed,
   }) {
     return _then(_$_FailModel(
       failMessage: null == failMessage
@@ -105,6 +120,10 @@ class __$$_FailModelCopyWithImpl<$Res>
           ? _value.errorCode
           : errorCode // ignore: cast_nullable_to_non_nullable
               as int,
+      onPressCallback: freezed == onPressCallback
+          ? _value.onPressCallback
+          : onPressCallback // ignore: cast_nullable_to_non_nullable
+              as VoidCallback?,
     ));
   }
 }
@@ -115,7 +134,8 @@ class _$_FailModel implements _FailModel {
   const _$_FailModel(
       {required this.failMessage,
       required this.descriptionFail,
-      this.errorCode = 404});
+      this.errorCode = 404,
+      this.onPressCallback});
 
   @override
   final String failMessage;
@@ -124,10 +144,12 @@ class _$_FailModel implements _FailModel {
   @override
   @JsonKey()
   final int errorCode;
+  @override
+  final VoidCallback? onPressCallback;
 
   @override
   String toString() {
-    return 'FailModel(failMessage: $failMessage, descriptionFail: $descriptionFail, errorCode: $errorCode)';
+    return 'FailModel(failMessage: $failMessage, descriptionFail: $descriptionFail, errorCode: $errorCode, onPressCallback: $onPressCallback)';
   }
 
   @override
@@ -140,12 +162,14 @@ class _$_FailModel implements _FailModel {
             (identical(other.descriptionFail, descriptionFail) ||
                 other.descriptionFail == descriptionFail) &&
             (identical(other.errorCode, errorCode) ||
-                other.errorCode == errorCode));
+                other.errorCode == errorCode) &&
+            (identical(other.onPressCallback, onPressCallback) ||
+                other.onPressCallback == onPressCallback));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, failMessage, descriptionFail, errorCode);
+  int get hashCode => Object.hash(
+      runtimeType, failMessage, descriptionFail, errorCode, onPressCallback);
 
   @JsonKey(ignore: true)
   @override
@@ -158,7 +182,8 @@ abstract class _FailModel implements FailModel {
   const factory _FailModel(
       {required final String failMessage,
       required final String descriptionFail,
-      final int errorCode}) = _$_FailModel;
+      final int errorCode,
+      final VoidCallback? onPressCallback}) = _$_FailModel;
 
   @override
   String get failMessage;
@@ -166,6 +191,8 @@ abstract class _FailModel implements FailModel {
   String get descriptionFail;
   @override
   int get errorCode;
+  @override
+  VoidCallback? get onPressCallback;
   @override
   @JsonKey(ignore: true)
   _$$_FailModelCopyWith<_$_FailModel> get copyWith =>

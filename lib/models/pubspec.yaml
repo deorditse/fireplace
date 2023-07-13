@@ -13,9 +13,9 @@ dependencies:
     sdk: flutter
   freezed_annotation: ^2.2.0
   json_annotation: ^4.7.0
-  universal_html:
   hive: ^2.2.3
   hive_flutter: ^1.1.0
+  universal_html: ^2.2.3
 dev_dependencies:
   flutter_test:
     sdk: flutter
