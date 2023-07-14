@@ -1,4 +1,4 @@
-import 'package:fireplace/models/lib/models.dart';
+import 'package:models/models.dart';
 import 'package:fireplace/ui_layout/src/wrappers/wrappers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';

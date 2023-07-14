@@ -46,7 +46,6 @@ class HomeNetworkModel extends HiveObject with _$HomeNetworkModel {
     @HiveField(4) required String macAddressInLocalWiFi,
     @HiveField(5) required String password,
 
-    // @Default(false) @HiveField(2) bool isStar,
   }) = _HomeNetworkModel;
 
 // factory ChatMenuHiveModel.fromJson(Map<String, Object?> json) =>

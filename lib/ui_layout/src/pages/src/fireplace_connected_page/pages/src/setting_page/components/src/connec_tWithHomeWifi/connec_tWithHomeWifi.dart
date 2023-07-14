@@ -1,6 +1,10 @@
 import 'package:fireplace/ui_layout/src/styles/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:business_layout/business_layout.dart';
+
+import 'pages/connect_homeWiFi_page/connect_homeWiFi_page.dart';
 
 class ConnectWithHomeWifi extends StatelessWidget {
   const ConnectWithHomeWifi({super.key});
@@ -9,13 +13,17 @@ class ConnectWithHomeWifi extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () {
-        // Get.toNamed(ConnectHomeWiFiPage.id);
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (_) => BlocProvider.value(
+              value: BlocProvider.of<ConnectedDirectlyBloc>(context),
+              child: const ConnectHomeWiFiPage(),
+            ),
+          ),
+        );
       },
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
-        // crossAxisAlignment: CrossAxisAlignment.end,
-        // mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
             'Подключить в локальную сеть',
@@ -24,7 +32,7 @@ class ConnectWithHomeWifi extends StatelessWidget {
               // textColor: myColorActivity,
             ),
           ),
-          SizedBox(width: 14),
+          const SizedBox(width: 14),
           SvgPicture.asset(
             'assets/icons/home_icon.svg',
             semanticsLabel: 'home_icon.svg',
@@ -36,3 +44,4 @@ class ConnectWithHomeWifi extends StatelessWidget {
     );
   }
 }
+

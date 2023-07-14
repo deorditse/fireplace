@@ -4,12 +4,10 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import '../../styles/styles.dart';
 
 class MySkeletonPage extends StatelessWidget {
-  const MySkeletonPage({
-    super.key,
-    required this.child,
-  });
+  const MySkeletonPage({super.key, required this.child, this.padding});
 
   final Widget child;
+  final EdgeInsets? padding;
 
   @override
   Widget build(BuildContext context) {
@@ -19,10 +17,15 @@ class MySkeletonPage extends StatelessWidget {
       child: Scaffold(
         resizeToAvoidBottomInset: false,
         backgroundColor: Colors.transparent,
-        body: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            child: child,
+        body: GestureDetector(
+          onTap: () {
+            FocusManager.instance.primaryFocus?.unfocus();
+          },
+          child: SafeArea(
+            child: Padding(
+              padding: padding ?? const EdgeInsets.symmetric(horizontal: 20.0),
+              child: child,
+            ),
           ),
         ),
       ),

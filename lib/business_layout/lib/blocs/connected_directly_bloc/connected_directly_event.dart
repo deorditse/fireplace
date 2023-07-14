@@ -32,4 +32,6 @@ class ConnectedDirectlyEvent with _$ConnectedDirectlyEvent {
 
   const factory ConnectedDirectlyEvent.dispose() =
       _DisposeConnectedDirectlyEvent;
+
+
 }

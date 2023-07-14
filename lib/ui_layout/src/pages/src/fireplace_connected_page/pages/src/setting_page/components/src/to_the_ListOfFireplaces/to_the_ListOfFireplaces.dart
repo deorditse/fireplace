@@ -1,6 +1,10 @@
+import 'package:fireplace/main.dart';
+import 'package:fireplace/ui_layout/src/pages/pages.dart';
 import 'package:fireplace/ui_layout/src/styles/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:business_layout/business_layout.dart';
 
 class ToTheListOfFireplaces extends StatelessWidget {
   const ToTheListOfFireplaces({super.key});
@@ -9,8 +13,18 @@ class ToTheListOfFireplaces extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () {
-        // Get.offNamed(SearchFireplacePage.id);
-        // FireplaceConnectionGetXController.instance.disposeFireplaceData();
+        BlocProvider.of<ConnectedDirectlyBloc>(context)
+            .add(const ConnectedDirectlyEvent.dispose());
+        Future.delayed(
+          Duration.zero,
+          () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (_) => const SearchFireplacePage(),
+              ),
+            );
+          },
+        );
       },
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -36,4 +50,3 @@ class ToTheListOfFireplaces extends StatelessWidget {
     );
   }
 }
-

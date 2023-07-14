@@ -40,6 +40,7 @@ class MyApp extends StatelessWidget {
     return BlocProvider<RootBloc>(
       create: (_) => RootBloc()..add(const RootEvent.onInit()),
       child: MaterialApp(
+        scaffoldMessengerKey: RootConstApp.snackBarKey,
         debugShowCheckedModeBanner: false,
         theme: themeDark,
         home: const SearchFireplacePage(),

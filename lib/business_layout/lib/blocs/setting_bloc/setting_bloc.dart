@@ -14,31 +14,80 @@ part 'setting_bloc.freezed.dart';
 // flutter pub run build_runner build --delete-conflicting-outputs
 class SettingBloc extends Bloc<SettingEvent, SettingState> {
   // final RepositoryFireplace _repositoryFireplace = RepositoryFireplace();
-  // final NetworkServices _networkServices = NetworkServices();
+  final NetworkServices _networkServices = NetworkServices();
+
   // final LocalNetworkStorage _localNetworkStorage = LocalNetworkStorage();
-  FireplaceDataModel? _fireplaceDataFromSettingPage;
+  String _ipAddress = '';
 
   SettingBloc() : super(const SettingState()) {
     on<SettingEvent>(
       (SettingEvent event, _) {
         event.when<void>(
           onInit: _onInit,
+          changeValueCracklingSoundEffect: _changeValueCracklingSoundEffect,
+          changeSwitchCracklingSoundEffect: _changeSwitchCracklingSoundEffect,
+          changeSwitchVoicePrompts: _changeSwitchVoicePrompts,
+          changeBlocPassword: _changeBlocPassword,
         );
       },
     );
   }
 
-  void _onInit(FireplaceDataModel fireplaceData) {
-    _fireplaceDataFromSettingPage = fireplaceData;
+  void _onInit(String ipAddress) {
+    log("setting_bloc _onInit");
+    _ipAddress = ipAddress;
   }
 
-  // Future<void> _changeFireplaceDataFromLocalStorage(
-  //     HomeNetworkModel homeNetworkModel) async {
-  //   try {
-  //     log("setting_bloc _changeFireplaceDataFromLocalStorage");
-  //   } catch (e) {
-  //     Logger().log(Level.error,
-  //         '[setting_bloc] _changeFireplaceDataFromLocalStorage catch error  $e');
-  //   }
-  // }
+  Future<void> _changeSwitchCracklingSoundEffect(bool isCrack) async {
+    try {
+      log("setting_bloc _changeSwitchCracklingSoundEffect");
+
+      await _networkServices.firewoodCracklingFireplace(
+        isCrack: isCrack,
+        ipAdressFireplace: _ipAddress,
+      );
+    } catch (e) {
+      Logger().log(Level.error,
+          '[setting_bloc] _changeSwitchCracklingSoundEffect catch error  $e');
+    }
+  }
+
+  Future<void> _changeSwitchVoicePrompts(bool isVoicePrompts) async {
+    try {
+      log("setting_bloc _changeSwitchVoicePrompts");
+      await _networkServices.voicePromptsFireplace(
+        isVoicePrompts: isVoicePrompts,
+        ipAdressFireplace: _ipAddress,
+      );
+    } catch (e) {
+      Logger().log(Level.error,
+          '[setting_bloc] _changeSwitchVoicePrompts catch error  $e');
+    }
+  }
+
+  Future<void> _changeValueCracklingSoundEffect(int value) async {
+    try {
+      log("setting_bloc _changeValueCracklingSoundEffect");
+      await _networkServices.firewoodCracklingVolumeFireplace(
+        volumeCrack: value,
+        ipAdressFireplace: _ipAddress,
+      );
+    } catch (e) {
+      Logger().log(Level.error,
+          '[setting_bloc] _changeValueCracklingSoundEffect catch error  $e');
+    }
+  }
+
+  Future<void> _changeBlocPassword(int newPassword) async {
+    try {
+      log("setting_bloc _changeBlocPassword");
+      await _networkServices.changeBlocPassword(
+        newPassword: newPassword,
+        ipAdressFireplace: _ipAddress,
+      );
+    } catch (e) {
+      Logger().log(
+          Level.error, '[setting_bloc] _changeBlocPassword catch error  $e');
+    }
+  }
 }

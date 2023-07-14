@@ -42,6 +42,10 @@ class ConnectedDirectlyBloc
       log("connected_directly_bloc _onInit wifiName $wifiName ipAddress $ipAddress");
       _wifiName = wifiName;
       _ipAddress = ipAddress;
+      emit(state.copyWith(
+        fireplaceData:
+            state.fireplaceData?.copyWith(ipAdreesInLocalWiFi: ipAddress),
+      ));
       _initialFireplaceData();
     } catch (e) {
       Logger().log(

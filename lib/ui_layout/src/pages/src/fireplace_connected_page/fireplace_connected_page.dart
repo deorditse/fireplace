@@ -10,6 +10,8 @@ import 'widgets/app_bar_fireplace.dart';
 import 'widgets/body_fireplace_connected_page/body_fireplace_connected_page.dart';
 
 class FireplaceConnectedPage extends StatelessWidget {
+  static const String id = '/fireplaceConnectedPage';
+
   const FireplaceConnectedPage({
     super.key,
     required this.wifiName,

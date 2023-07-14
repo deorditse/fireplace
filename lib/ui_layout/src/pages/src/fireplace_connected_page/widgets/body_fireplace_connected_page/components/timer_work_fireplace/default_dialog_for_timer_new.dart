@@ -139,9 +139,10 @@ class _DefaultDialogIfDayHasNotCome extends StatelessWidget {
                         MaterialStateProperty.all(Colors.transparent)),
                 onPressed: () {
                   if (isRunning) {
-                    BlocProvider.of<ConnectedDirectlyBloc>(context).add(
-                        const ConnectedDirectlyEvent.updateTimerFireplace(
-                            isCancel: true));
+                    BlocProvider.of<ConnectedDirectlyBloc>(context)
+                        .add(const ConnectedDirectlyEvent.updateTimerFireplace(
+                      isCancel: true,
+                    ));
                   } else {
                     BlocProvider.of<ConnectedDirectlyBloc>(context)
                         .add(const ConnectedDirectlyEvent.startTimer());

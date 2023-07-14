@@ -16,7 +16,6 @@ part 'root_bloc.freezed.dart';
 // flutter pub run build_runner build --delete-conflicting-outputs
 class RootBloc extends Bloc<RootEvent, RootState> {
   final RepositoryFireplace _repositoryFireplace = RepositoryFireplace();
-  final NetworkServices _networkServices = NetworkServices();
   final LocalNetworkStorage _localNetworkStorage = LocalNetworkStorage();
 
   RootBloc() : super(const RootState()) {
@@ -29,6 +28,7 @@ class RootBloc extends Bloc<RootEvent, RootState> {
           changeFireplaceDataFromLocalStorage:
               _changeFireplaceDataFromLocalStorage,
           addFireplaceInLocalStorage: _addFireplaceInLocalStorage,
+          viewDataInLocalStorage: _viewDataInLocalStorage,
         );
       },
     );
@@ -40,6 +40,8 @@ class RootBloc extends Bloc<RootEvent, RootState> {
 
       //проверка разрешений
       await _initPermissions();
+      //инициализация hive
+      await _localNetworkStorage.instanceHiveStorage();
       //получение данных о wifi сети
       String? wifiName = (await NetworkInfo().getWifiName())?.toLowerCase();
       String? ipAddressFireplace = await NetworkInfo().getWifiIP();
@@ -79,7 +81,7 @@ class RootBloc extends Bloc<RootEvent, RootState> {
         );
       } else {
         ///проверка по сохраненным в память каминам
-        await _localNetworkStorage.instanceHiveStorage();
+
         List<HomeNetworkModel> listHomeNetworkModel = await _localNetworkStorage
             .getFireplacesInLocalStorage(keyWifiName: wifiName);
         if (listHomeNetworkModel.isNotEmpty) {
@@ -133,12 +135,17 @@ class RootBloc extends Bloc<RootEvent, RootState> {
     }
   }
 
-  Future<void> _saveFireplaceInLocalStorage() async {
+  Future<void> _saveFireplaceInLocalStorage(
+    HomeNetworkModel homeNetworkModel,
+  ) async {
     try {
       log("root_bloc _saveFireplaceInLocalStorage");
       await _localNetworkStorage.addNewFireplaceInLocalStorage(
-        homeNetworkModel: state.homeNetworkDataToLocalStorage!,
+        homeNetworkModel: homeNetworkModel,
       );
+      emit(state.copyWith(
+        homeNetworkDataToLocalStorage: homeNetworkModel,
+      ));
     } catch (e) {
       Logger().log(Level.error,
           '[root_bloc] _saveFireplaceInLocalStorage catch error  $e');
@@ -175,7 +182,28 @@ class RootBloc extends Bloc<RootEvent, RootState> {
     }
   }
 
-  void _addFireplaceInLocalStorage(HomeNetworkModel homeNetworkModel) {
-    emit(state.copyWith(homeNetworkDataToLocalStorage: homeNetworkModel));
+  void _addFireplaceInLocalStorage(
+    String nameHomeWifiNetwork,
+    String password,
+  ) {
+    final _homeNetworkModel = HomeNetworkModel(
+      customName: ' - ',
+      nameHomeWifiNetwork: nameHomeWifiNetwork,
+      password: password,
+      nameFromHardListWifiName: '',
+      ipAddressFireplace: state.ipAddress,
+      macAddressInLocalWiFi: '',
+    );
+
+    emit(state.copyWith(
+      homeNetworkDataToLocalStorage: _homeNetworkModel,
+    ));
+  }
+
+  Future<void> _viewDataInLocalStorage(String keyWifi) async {
+    List<HomeNetworkModel> listHomeNetworkModel = await _localNetworkStorage
+        .getFireplacesInLocalStorage(keyWifiName: keyWifi);
+    Logger().log(Level.debug,
+        '[root_bloc] _viewDataInLocalStorage $listHomeNetworkModel');
   }
 }

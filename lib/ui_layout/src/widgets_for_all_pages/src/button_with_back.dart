@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-buttonWithBack() {
+buttonWithBack(context) {
   return TextButton(
     onPressed: () {
-      // Get.back();
+      Navigator.of(context).pop();
     },
     child: SvgPicture.asset(
       'assets/icons/back.svg',

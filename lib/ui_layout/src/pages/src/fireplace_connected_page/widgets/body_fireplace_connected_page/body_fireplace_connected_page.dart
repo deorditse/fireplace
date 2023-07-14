@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:business_layout/business_layout.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 import '../../pages/pages.dart';
 import 'components/bottom_row_with_parameters.dart';
 import 'components/loading_fireplace.dart';
@@ -16,15 +15,7 @@ class BodyConnectedPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<ConnectedDirectlyBloc, ConnectedDirectlyState>(
-      listener: (context, state) {
-        if (state.fireplaceData?.macAdreesInLocalWiFi != null &&
-            state.fireplaceData?.ipAdreesInLocalWiFi != null) {
-          ///добавляю в локальную сеть камин
-          BlocProvider.of<RootBloc>(context)
-              .add(const RootEvent.saveFireplaceInLocalStorage());
-        }
-      },
+    return BlocBuilder<ConnectedDirectlyBloc, ConnectedDirectlyState>(
       builder: (context, state) {
         if (state.failModel != null) {
           return ErrorFireplace(failModel: state.failModel!);
@@ -32,9 +23,7 @@ class BodyConnectedPage extends StatelessWidget {
           if (state.fireplaceData!.isBlocButton) {
             return const BlockPage();
           } else if (state.isSettingButtonActive) {
-            return SettingPage(
-              fireplaceData: state.fireplaceData!,
-            );
+            return SettingPage();
           } else {
             return Stack(
               children: [

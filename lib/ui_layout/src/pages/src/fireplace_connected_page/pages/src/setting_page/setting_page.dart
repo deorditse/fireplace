@@ -9,12 +9,7 @@ import 'package:business_layout/business_layout.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class SettingPage extends StatelessWidget {
-  const SettingPage({
-    super.key,
-    required this.fireplaceData,
-  });
-
-  final FireplaceDataModel fireplaceData;
+  const SettingPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +17,7 @@ class SettingPage extends StatelessWidget {
       create: (_) => SettingBloc()
         ..add(
           SettingEvent.onInit(
-            fireplaceData: fireplaceData,
+            ipAddress: BlocProvider.of<RootBloc>(context).state.ipAddress,
           ),
         ),
       child: const _SettingPage(),
@@ -31,51 +26,44 @@ class SettingPage extends StatelessWidget {
 }
 
 class _SettingPage extends StatelessWidget {
-  const _SettingPage({super.key});
+  const _SettingPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        SizedBox(
-          height: MediaQuery.of(context).size.height * 0.76,
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const ConnectWithHomeWifi(),
-                myDivider(),
-                const ToTheListOfFireplaces(),
-                myDivider(),
-                SizedBox(height: mySizedHeightBetweenAlert),
-                // const SetVolumeWidget(),
-                SizedBox(height: mySizedHeightBetweenAlert),
-                myDivider(),
-                SizedBox(height: mySizedHeightBetweenAlert),
-                // FittedBox(child: AboutDeviceWidget()),
-                // SizedBox(height: mySizedHeightBetweenAlert),
-                // myDivider(),
-                // SizedBox(height: mySizedHeightBetweenAlert),
-                // _passwordUser(),
-                // SizedBox(height: mySizedHeightBetweenAlert),
-                // myDivider(),
-                // SizedBox(height: mySizedHeightBetweenAlert),
-                // _instructionUser(),
-                // SizedBox(height: mySizedHeightBetweenAlert),
-                // myDivider(),
-                // SizedBox(height: mySizedHeightBetweenAlert),
-                // const ServiceCenterContacts(),
-                // SizedBox(height: mySizedHeightBetweenAlert),
-                myDivider(),
-              ],
-            ),
-          ),
-        ),
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: rowWithDomain(context: context),
-        ),
-      ],
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+
+          const ConnectWithHomeWifi(),
+          myDivider(),
+          const ToTheListOfFireplaces(),
+          myDivider(),
+          SizedBox(height: mySizedHeightBetweenAlert),
+          const SetVolumeWidget(),
+          SizedBox(height: mySizedHeightBetweenAlert),
+          myDivider(),
+          SizedBox(height: mySizedHeightBetweenAlert),
+          const FittedBox(child: AboutDeviceWidget()),
+          SizedBox(height: mySizedHeightBetweenAlert),
+          myDivider(),
+          // SizedBox(height: mySizedHeightBetweenAlert),
+          const PasswordUser(),
+          // SizedBox(height: mySizedHeightBetweenAlert),
+          myDivider(),
+          // SizedBox(height: mySizedHeightBetweenAlert),
+          const InstructionUser(),
+          // SizedBox(height: mySizedHeightBetweenAlert),
+          myDivider(),
+          SizedBox(height: mySizedHeightBetweenAlert),
+          const ServiceCenterContacts(),
+          SizedBox(height: mySizedHeightBetweenAlert),
+          myDivider(),
+          SizedBox(height: mySizedHeightBetweenAlert),
+          rowWithDomain(context: context),
+          SizedBox(height: mySizedHeightBetweenAlert),
+        ],
+      ),
     );
   }
 

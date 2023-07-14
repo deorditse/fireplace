@@ -61,7 +61,7 @@ class TestModeData {
           //Звуковой эффект потрескивание дров
 
           ///Ссылка на инструкцию по эксплуатации
-          linkToUserManual: 'test link',
+          linkToUserManual: 'web.telegram.org/a/#434843347',
 
           ///Адрес почты сервисного центра;
           serviceCenterEmailAddress: 'info@abc-fireplace.com',
@@ -137,7 +137,7 @@ class TestModeData {
           isSwitchClickSound: true,
 
           ///Ссылка на инструкцию по эксплуатации
-          linkToUserManual: 'test link',
+          linkToUserManual: 'web.telegram.org/a/#434843347',
 
           ///Адрес почты сервисного центра;
           serviceCenterEmailAddress: 'info@abc-fireplace.com',
