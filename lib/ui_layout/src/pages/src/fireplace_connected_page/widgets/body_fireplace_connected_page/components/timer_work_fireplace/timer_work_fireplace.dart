@@ -16,6 +16,7 @@ Widget timeWorkFireplace(BuildContext context) {
           .fireplaceData!;
   return MyContainerAlert(
     width: MediaQuery.of(context).size.width * 0.64,
+    padding: const EdgeInsets.all(8),
     // height: 80,
     child: Row(
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -54,11 +55,13 @@ Widget timeWorkFireplace(BuildContext context) {
             children: [
               Expanded(
                 flex: 2,
-                child: Text(
-                  'таймер',
-                  style: myTextStyleFontSarpanch(
-                    fontSize: 20,
-                    textColor: myTwoColor,
+                child: FittedBox(
+                  child: Text(
+                    'таймер',
+                    style: myTextStyleFontSarpanch(
+                      fontSize: 20,
+                      textColor: myTwoColor,
+                    ),
                   ),
                 ),
               ),

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 rowWithDomain({context}) => Padding(
-  padding: const EdgeInsets.only(bottom: 4.0),
+  padding: const EdgeInsets.only(bottom: 8.0),
   child:   Row(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.end,

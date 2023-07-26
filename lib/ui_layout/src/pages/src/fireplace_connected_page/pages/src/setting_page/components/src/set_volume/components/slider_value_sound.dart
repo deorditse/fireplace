@@ -16,45 +16,49 @@ class _SliderValueSoundState extends State<SliderValueSound> {
 
   @override
   Widget build(BuildContext context) {
-    final double sliderValueCracklingSoundEffectAndLevelValue =
-        BlocProvider.of<ConnectedDirectlyBloc>(context, listen: true)
-                .state
-                .fireplaceData!
-                .sliderValueVoicePromptsAndLevelValue
-                ?.values
-                .first
-                .toDouble() ??
-            10;
-
     return Padding(
       padding: EdgeInsets.only(top: mySizedHeightBetweenAlert),
       child: MySliderTheme(
-        child: Slider(
-          label:
-              '${valueChangeClickSound?.toInt() ?? sliderValueCracklingSoundEffectAndLevelValue}',
-          divisions: 19,
-          min: 10.0,
-          max: 30,
-          value: valueChangeClickSound ??
-              sliderValueCracklingSoundEffectAndLevelValue,
-          onChangeEnd: (value) {
-            BlocProvider.of<SettingBloc>(context).add(
-                SettingEvent.changeValueCracklingSoundEffect(
-                    value: value.toInt()));
+        child: BlocBuilder<ConnectedDirectlyBloc, ConnectedDirectlyState>(
+          buildWhen: (prev, cur) =>
+              cur.fireplaceData!.sliderValueVoicePromptsAndLevelValue !=
+              prev.fireplaceData!.sliderValueVoicePromptsAndLevelValue,
+          builder: (context, state) {
+            final double sliderValueCracklingSoundEffectAndLevelValue = state
+                    .fireplaceData!
+                    .sliderValueVoicePromptsAndLevelValue
+                    ?.values
+                    .first
+                    .toDouble() ??
+                10;
+            return Slider(
+              label:
+                  '${valueChangeClickSound?.toInt() ?? sliderValueCracklingSoundEffectAndLevelValue}',
+              divisions: 19,
+              min: 10.0,
+              max: 30,
+              value: valueChangeClickSound ??
+                  sliderValueCracklingSoundEffectAndLevelValue,
+              onChangeEnd: (value) {
+                BlocProvider.of<SettingBloc>(context).add(
+                    SettingEvent.changeValueCracklingSoundEffect(
+                        value: value.toInt()));
 
-            Future.delayed(
-              const Duration(seconds: 1),
-              () {
+                Future.delayed(
+                  const Duration(seconds: 1),
+                  () {
+                    setState(() {
+                      valueChangeClickSound = null;
+                    });
+                  },
+                );
+              },
+              onChanged: (double value) {
                 setState(() {
-                  valueChangeClickSound = null;
+                  valueChangeClickSound = value;
                 });
               },
             );
-          },
-          onChanged: (double value) {
-            setState(() {
-              valueChangeClickSound = value;
-            });
           },
         ),
       ),

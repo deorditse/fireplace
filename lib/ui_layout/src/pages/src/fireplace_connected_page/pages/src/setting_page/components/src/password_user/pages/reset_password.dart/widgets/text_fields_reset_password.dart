@@ -28,10 +28,12 @@ class _TextFieldsResetPasswordState extends State<TextFieldsResetPassword> {
     required String newPassword,
     required String newPassword2,
   }) async {
+    FocusScope.of(context).unfocus;
     setState(() {
       _isSuccess = false;
     });
     if (_formKey.currentState!.validate()) {
+      _formKey.currentState!.save();
       if (BlocProvider.of<ConnectedDirectlyBloc>(context)
               .state
               .fireplaceData!
@@ -91,7 +93,7 @@ class _TextFieldsResetPasswordState extends State<TextFieldsResetPassword> {
                   return null;
                 },
               ),
-              SizedBox(height: mySizedHeightBetweenAlert * 2),
+              SizedBox(height: mySizedHeightBetweenAlert),
               TextFormField(
                 maxLength: 4,
                 cursorColor: myColorActivity,
@@ -113,7 +115,7 @@ class _TextFieldsResetPasswordState extends State<TextFieldsResetPassword> {
                   return null;
                 },
               ),
-              SizedBox(height: mySizedHeightBetweenAlert * 2),
+              SizedBox(height: mySizedHeightBetweenAlert),
               TextFormField(
                 maxLength: 4,
                 cursorColor: myColorActivity,
@@ -138,10 +140,12 @@ class _TextFieldsResetPasswordState extends State<TextFieldsResetPassword> {
               Row(
                 children: [
                   Expanded(
-                    child: Text(
-                      'Сохранить',
-                      style: myTextStyleFontRoboto(fontSize: 18),
-                      textAlign: TextAlign.right,
+                    child: FittedBox(
+                      child: Text(
+                        'Сохранить',
+                        style: myTextStyleFontRoboto(fontSize: 18),
+                        textAlign: TextAlign.right,
+                      ),
                     ),
                   ),
                   SizedBox(width: mySizedHeightBetweenAlert),
@@ -156,12 +160,14 @@ class _TextFieldsResetPasswordState extends State<TextFieldsResetPassword> {
                               backgroundColor:
                                   MaterialStatePropertyAll(myTwoColor),
                             ),
-                            onPressed: () => _handleSubmit(
-                              context,
-                              oldPassword: _passwordOldController.text,
-                              newPassword: _passwordNew1Controller.text,
-                              newPassword2: _passwordNew2Controller.text,
-                            ),
+                            onPressed: () {
+                              _handleSubmit(
+                                context,
+                                oldPassword: _passwordOldController.text,
+                                newPassword: _passwordNew1Controller.text,
+                                newPassword2: _passwordNew2Controller.text,
+                              );
+                            },
                             child: SvgPicture.asset(
                               'assets/icons/check.svg',
                               semanticsLabel: 'check',

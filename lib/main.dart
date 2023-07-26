@@ -19,15 +19,18 @@ class Root extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<ConnectivityResult>(
-      stream: Connectivity().onConnectivityChanged,
-      initialData: ConnectivityResult.wifi,
-      builder: (c, AsyncSnapshot<ConnectivityResult> snapshot) {
-        final state = snapshot.data;
-        return state == ConnectivityResult.wifi
-            ? const MyApp()
-            : WifiOffScreenPage(state: state);
-      },
+    return BlocProvider<RootBloc>(
+      create: (_) => RootBloc()..add(const RootEvent.onInit()),
+      child: StreamBuilder<ConnectivityResult>(
+        stream: Connectivity().onConnectivityChanged,
+        initialData: ConnectivityResult.wifi,
+        builder: (c, AsyncSnapshot<ConnectivityResult> snapshot) {
+          final state = snapshot.data;
+          return state == ConnectivityResult.wifi
+              ? const MyApp()
+              : WifiOffScreenPage(state: state);
+        },
+      ),
     );
   }
 }
@@ -37,14 +40,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<RootBloc>(
-      create: (_) => RootBloc()..add(const RootEvent.onInit()),
-      child: MaterialApp(
-        scaffoldMessengerKey: RootConstApp.snackBarKey,
-        debugShowCheckedModeBanner: false,
-        theme: themeDark,
-        home: const SearchFireplacePage(),
-      ),
+    return MaterialApp(
+      scaffoldMessengerKey: RootConstApp.snackBarKey,
+      debugShowCheckedModeBanner: false,
+      theme: themeDark,
+      home: const SearchFireplacePage(),
     );
   }
 }

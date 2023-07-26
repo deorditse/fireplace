@@ -26,7 +26,7 @@ class BodyBlockFireplace extends StatelessWidget {
             SizedBox(height: mySizedHeightBetweenAlert),
             timeWorkFireplace(context),
             const SizedBox(height: 20),
-            Expanded(child: _textField(context)),
+            const Expanded(child: _TextField()),
           ],
         ),
       ),
@@ -44,90 +44,110 @@ class BodyBlockFireplace extends StatelessWidget {
   }
 }
 
-Widget _textField(context) {
-  return Column(
-    children: [
-      Padding(
-        padding: const EdgeInsets.only(bottom: 8.0),
-        child: Text(
-          'введите пароль',
-          style: myTextStyleFontRoboto(
-            fontSize: 24,
-            textColor: myTwoColor,
-          ),
-        ),
-      ),
-      Expanded(
-        child: Column(
-          children: [
-            SizedBox(
-              // height: 40,
-              width: MediaQuery.of(context).size.width / 2.5,
-              child: _myTextField(context),
-            ),
-            const SizedBox(height: 20),
-            Expanded(
-              child: SvgPicture.asset(
-                'assets/icons/mainBlock.svg',
-                semanticsLabel: 'icon_bottom',
-                fit: BoxFit.contain,
-              ),
-            ),
-          ],
-        ),
-      ),
-    ],
-  );
+class _TextField extends StatefulWidget {
+  const _TextField({super.key});
+
+  @override
+  State<_TextField> createState() => _TextFieldState();
 }
 
-TextField _myTextField(BuildContext context) {
-  return TextField(
-    maxLength: 4,
-    onChanged: (password) {
-      if (password.length >= 4) {
-        if (password ==
-            BlocProvider.of<ConnectedDirectlyBloc>(context)
-                .state
-                .fireplaceData!
-                .passwordBlock
-                .toString()) {
-          BlocProvider.of<ConnectedDirectlyBloc>(context)
-              .add(const ConnectedDirectlyEvent.changeIsBlocButton(
-            isNewBlocButton: false,
-          ));
-        } else {
-          myBottomSnackBar(
-            context,
-            content: "Пароль введен неверно",
-          );
-        }
-      }
-    },
-    textAlign: TextAlign.center,
-    style: myTextStyleFontRoboto(textColor: myColorActivity, fontSize: 24),
-    decoration: InputDecoration(
-      focusColor: myColorActivity,
-      hoverColor: myColorActivity,
-      filled: true,
-      fillColor: myTwoColor,
-      border: const UnderlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(10))),
-    ),
-    // keyboardType: TextInputType.number,
-    keyboardType: TextInputType.number,
-    inputFormatters: <TextInputFormatter>[
-      FilteringTextInputFormatter.digitsOnly,
-    ],
-    obscureText: true,
+class _TextFieldState extends State<_TextField> {
+  bool isValidate = true;
 
-    //
-    // keyboardType: TextInputType.number,
-    // inputFormatters: <TextInputFormatter>[
-    //   FilteringTextInputFormatter.singleLineFormatter,
-    // ],
-    // obscureText: true,
-    obscuringCharacter: '*',
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(bottom: 8.0),
+          child: Text(
+            'введите пароль',
+            style: myTextStyleFontRoboto(
+              fontSize: 24,
+              textColor: myTwoColor,
+            ),
+          ),
+        ),
+        Expanded(
+          child: Column(
+            children: [
+              SizedBox(
+                // height: 40,
+                width: MediaQuery.of(context).size.width / 2.5,
+                child: _myTextField(context),
+              ),
+              const SizedBox(height: 20),
+              Expanded(
+                child: SvgPicture.asset(
+                  'assets/icons/mainBlock.svg',
+                  semanticsLabel: 'icon_bottom',
+                  fit: BoxFit.contain,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
 
-    cursorColor: myColorActivity,
-  );
+  Widget _myTextField(BuildContext context) {
+    return BlocBuilder<ConnectedDirectlyBloc, ConnectedDirectlyState>(
+      buildWhen: (prev, cur) =>
+          cur.fireplaceData!.passwordBlock != prev.fireplaceData!.passwordBlock,
+      builder: (context, state) => TextField(
+        maxLength: 4,
+        onChanged: (password) {
+          if (password.length >= 4) {
+            if (password == state.fireplaceData!.passwordBlock.toString()) {
+              BlocProvider.of<ConnectedDirectlyBloc>(context)
+                  .add(const ConnectedDirectlyEvent.changeIsBlocButton(
+                isNewBlocButton: false,
+              ));
+            } else {
+              setState(() {
+                isValidate = false;
+              });
+              myBottomSnackBar(
+                context,
+                content: "Пароль введен неверно",
+              );
+            }
+          } else {
+            if (!isValidate) {
+              setState(() {
+                isValidate = true;
+              });
+            }
+          }
+        },
+        textAlign: TextAlign.center,
+        style: myTextStyleFontRoboto(textColor: myColorActivity, fontSize: 24),
+        decoration: InputDecoration(
+          focusColor: myColorActivity,
+          hoverColor: myColorActivity,
+          filled: true,
+          fillColor: isValidate ? myTwoColor : Colors.red,
+          border: const UnderlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(10))),
+        ),
+        // keyboardType: TextInputType.number,
+        keyboardType: TextInputType.number,
+        inputFormatters: <TextInputFormatter>[
+          FilteringTextInputFormatter.digitsOnly,
+        ],
+        obscureText: true,
+
+        //
+        // keyboardType: TextInputType.number,
+        // inputFormatters: <TextInputFormatter>[
+        //   FilteringTextInputFormatter.singleLineFormatter,
+        // ],
+        // obscureText: true,
+        obscuringCharacter: '*',
+
+        cursorColor: myColorActivity,
+      ),
+    );
+  }
 }

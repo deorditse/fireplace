@@ -39,68 +39,73 @@ class RootBloc extends Bloc<RootEvent, RootState> {
       log("root_bloc _onInit");
 
       //проверка разрешений
-      await _initPermissions();
-      //инициализация hive
-      await _localNetworkStorage.instanceHiveStorage();
-      //получение данных о wifi сети
-      String? wifiName = (await NetworkInfo().getWifiName())?.toLowerCase();
-      String? ipAddressFireplace = await NetworkInfo().getWifiIP();
+      await _initPermissions().then((_) async {
+        //инициализация hive
+        await _localNetworkStorage.instanceHiveStorage();
+        //получение данных о wifi сети
+        String? wifiName = (await NetworkInfo().getWifiName())?.toLowerCase();
+        String? ipAddressFireplace = await NetworkInfo().getWifiIP();
 
-      if (RootConstApp.isTestMode) {
-        wifiName = "test mode wifi";
-      }
+        if (RootConstApp.isTestMode) {
+          wifiName = "test mode wifi";
+        }
 
-      if (wifiName == null) {
-        emit(
-          const RootState(
-            failModel: FailModel(
-              failMessage: 'wifiName is null',
-              descriptionFail: 'Ошибка определения данных сети wifi',
-            ),
-          ),
-        );
-        return;
-      }
-      final Set<String> listWifiName =
-          _repositoryFireplace.listWifiIdIndicators;
-      String? threeWifiName = wifiName;
-      if (threeWifiName.split(" ").toList().length >= 3) {
-        threeWifiName = wifiName.split(" ").sublist(0, 3).join(" ");
-      }
-
-      ///проверка подключения напрямую
-      if (listWifiName.contains(threeWifiName)) {
-        ipAddressFireplace = "192.168.73.1";
-        //камин обнаружен
-        emit(
-          RootState(
-            wifiName: wifiName,
-            ipAddress: ipAddressFireplace,
-            isLoading: false,
-          ),
-        );
-      } else {
-        ///проверка по сохраненным в память каминам
-
-        List<HomeNetworkModel> listHomeNetworkModel = await _localNetworkStorage
-            .getFireplacesInLocalStorage(keyWifiName: wifiName);
-        if (listHomeNetworkModel.isNotEmpty) {
-          emit(
-            RootState(
-              listFireplacesFromLocalStorage: listHomeNetworkModel,
-            ),
-          );
-        } else {
+        if (wifiName == null) {
           emit(
             const RootState(
               failModel: FailModel(
-                failMessage: 'Нет доступных каминов',
-                descriptionFail: 'Ознакомьтесь с инструкцией по подключению',
+                failMessage: 'wifiName is null',
+                descriptionFail: 'Ошибка определения данных сети wifi',
               ),
             ),
           );
+          return;
         }
-      }
+        final Set<String> listWifiName =
+            _repositoryFireplace.listWifiIdIndicators;
+        String? threeWifiName = wifiName;
+        if (threeWifiName.split(" ").toList().length >= 3) {
+          threeWifiName = wifiName.split(" ").sublist(0, 3).join(" ");
+        }
+
+        log("threeWifiName from root_bloc $threeWifiName ipAddress $ipAddressFireplace");
+
+        ///проверка подключения напрямую
+        if (listWifiName.contains(threeWifiName)) {
+          ipAddressFireplace = "192.168.73.1";
+          //камин обнаружен
+          emit(
+            RootState(
+              wifiName: wifiName,
+              ipAddress: ipAddressFireplace,
+              isLoading: false,
+            ),
+          );
+        } else {
+          ///проверка по сохраненным в память каминам
+
+          List<HomeNetworkModel> listHomeNetworkModel =
+              await _localNetworkStorage.getFireplacesInLocalStorage(
+                  keyWifiName: wifiName);
+          if (listHomeNetworkModel.isNotEmpty) {
+            emit(
+              RootState(
+                listFireplacesFromLocalStorage: listHomeNetworkModel,
+                isLoading: false,
+              ),
+            );
+          } else {
+            emit(
+              const RootState(
+                failModel: FailModel(
+                  failMessage: 'Нет доступных каминов',
+                  descriptionFail: 'Ознакомьтесь с инструкцией по подключению',
+                ),
+              ),
+            );
+          }
+        }
+      });
     } catch (e) {
       Logger().log(Level.error, '[root_bloc] _onInit catch error  $e');
     }
@@ -108,28 +113,22 @@ class RootBloc extends Bloc<RootEvent, RootState> {
 
   Future<void> _initPermissions() async {
     try {
-      log("root_bloc _initPermissions");
+      const permission = Permission.location;
 
-      if (await Permission.location.serviceStatus.isEnabled) {
-        //проверяю какой статус у разрешение на геопозицию
-        var status = await Permission.location.request();
-
-        if (status.isGranted) {
-          print('Location is Granted');
-        } else if (status.isDenied) {
-          log('Location is Denied');
-
-          await [
-            Permission.location,
-            // Permission.storage,
-          ].request();
-        }
-      } else if (await Permission.location.isPermanentlyDenied) {
+      if (await permission.isPermanentlyDenied) {
         //если навсегда отключена геопозиция в настройках
         openAppSettings();
-      } else {
-        log('location.serviceStatus.isDisable');
+        return;
       }
+
+      if (await permission.isDenied) {
+        await permission.request();
+      }
+
+      // await [
+      //   Permission.locationWhenInUse,
+      //   Permission.locationAlways,
+      // ].request();
     } catch (e) {
       Logger().log(Level.error, '[root_bloc] _initPermissions catch error  $e');
     }
@@ -169,7 +168,8 @@ class RootBloc extends Bloc<RootEvent, RootState> {
   }
 
   Future<void> _changeFireplaceDataFromLocalStorage(
-      HomeNetworkModel homeNetworkModel) async {
+    HomeNetworkModel homeNetworkModel,
+  ) async {
     try {
       log("root_bloc _changeFireplaceDataFromLocalStorage");
 

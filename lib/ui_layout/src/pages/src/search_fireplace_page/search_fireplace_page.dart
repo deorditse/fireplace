@@ -65,8 +65,12 @@ class SearchFireplacePage extends StatelessWidget {
                   ],
                 ),
                 Expanded(
-                  child: BlocBuilder<RootBloc, RootState>(
-                      builder: (context, state) {
+                  child: BlocConsumer<RootBloc, RootState>(
+                      listener: (context, state) {
+                    myBottomSnackBar(context,
+                        content:
+                            "wifi ${state.wifiName} current ip ${state.ipAddress}");
+                  }, builder: (context, state) {
                     if (state.failModel != null) {
                       return ErrorFireplace(
                         failModel: state.failModel!,

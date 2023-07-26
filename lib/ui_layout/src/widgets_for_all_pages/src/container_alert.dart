@@ -10,12 +10,14 @@ class MyContainerAlert extends StatelessWidget {
     this.height,
     this.width,
     this.child,
+    this.padding,
   }) : super(key: key);
-  double? height;
-  double? width;
-  Color? borderColor;
-  String? message;
-  Widget? child;
+  final double? height;
+  final double? width;
+  final Color? borderColor;
+  final String? message;
+  final Widget? child;
+  final EdgeInsets? padding;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +32,7 @@ class MyContainerAlert extends StatelessWidget {
               context: context,
               colorBorder: borderColor ?? myTwoColor), // myTwoColor),
           child: Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: padding ?? const EdgeInsets.all(16.0),
             child: Center(
               child: (message != null)
                   ? Text(

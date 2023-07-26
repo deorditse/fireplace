@@ -10,57 +10,58 @@ class SliderSmartFire extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int countLabel = BlocProvider.of<ConnectedDirectlyBloc>(context)
-        .state
-        .fireplaceData!
-        .sliderValue
-        .values
-        .first!;
-    final List<int> _labels =
-        List.generate(countLabel, (index) => index.toInt() + 1);
-    //Слайдер (убераю его с экрана, когда идет охдажение камина)
+    return BlocBuilder<ConnectedDirectlyBloc, ConnectedDirectlyState>(
+      buildWhen: (prev, cur) =>
+          cur.fireplaceData!.sliderValue != prev.fireplaceData!.sliderValue,
+      builder: (context, state) {
+        int countLabel = state.fireplaceData!.sliderValue.values.first!;
+        final List<int> _labels =
+            List.generate(countLabel, (index) => index.toInt() + 1);
+        //Слайдер (убераю его с экрана, когда идет охдажение камина)
 
-    double heightSlider =
-        MediaQuery.of(context).size.height / (countLabel > 3 ? 2.2 : 3);
-    return Column(
-      children: [
-        SizedBox(
-          height: heightSlider,
-          width: MediaQuery.of(context).size.width / 8,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Flexible(
-                child: Padding(
-                  padding: EdgeInsets.only(
-                      top: 15,
-                      bottom: (heightSlider / countLabel).toDouble() - 3),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      ..._labels.reversed.map(
-                        (e) => Text(
-                          e.toString(),
-                          style: myTextStyleFontRoboto(
-                              fontSize: 22, textColor: myTwoColor),
-                        ),
+        double heightSlider =
+            MediaQuery.of(context).size.height / (countLabel > 3 ? 2.2 : 3);
+
+        return Column(
+          children: [
+            SizedBox(
+              height: heightSlider,
+              width: MediaQuery.of(context).size.width / 8,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Flexible(
+                    child: Padding(
+                      padding: EdgeInsets.only(
+                          top: 15,
+                          bottom: (heightSlider / countLabel).toDouble() - 3),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          ..._labels.reversed.map(
+                            (e) => Text(
+                              e.toString(),
+                              style: myTextStyleFontRoboto(
+                                  fontSize: 22, textColor: myTwoColor),
+                            ),
+                          ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
-                ),
+                  Expanded(
+                    child: _SliderSmartFire(
+                      maxValue: countLabel,
+                    ),
+                  ),
+                ],
               ),
-              Expanded(
-                child: _SliderSmartFire(
-                  maxValue: countLabel,
-                ),
-              ),
-            ],
-          ),
-        ),
-      ],
+            ),
+          ],
+        );
+      },
     );
-    ;
   }
 }
 

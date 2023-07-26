@@ -23,10 +23,12 @@ dependencies:
   flutter_native_splash: ^2.2.17
   intl: ^0.18.1
   connectivity_plus: ^4.0.1
+
   flutter_switch: ^0.3.2
   webview_flutter: ^4.2.2
   webview_flutter_wkwebview: ^3.7.0
   webview_flutter_android: ^3.9.0
+  flutter_launcher_icons: ^0.13.1
 dev_dependencies:
   flutter_test:
     sdk: flutter
