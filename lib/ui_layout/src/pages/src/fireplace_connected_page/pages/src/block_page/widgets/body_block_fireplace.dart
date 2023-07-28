@@ -1,12 +1,10 @@
 import 'package:business_layout/business_layout.dart';
 import 'package:fireplace/ui_layout/src/pages/src/fireplace_connected_page/widgets/body_fireplace_connected_page/components/timer_work_fireplace/timer_work_fireplace.dart';
 import 'package:fireplace/ui_layout/src/widgets_for_all_pages/widgets_for_all_pages.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 import '../../../../../../../styles/styles.dart';
 
 class BodyBlockFireplace extends StatelessWidget {
@@ -93,8 +91,8 @@ class _TextFieldState extends State<_TextField> {
 
   Widget _myTextField(BuildContext context) {
     return BlocBuilder<ConnectedDirectlyBloc, ConnectedDirectlyState>(
-      buildWhen: (prev, cur) =>
-          cur.fireplaceData!.passwordBlock != prev.fireplaceData!.passwordBlock,
+      // buildWhen: (prev, cur) =>
+      //     cur.fireplaceData!.passwordBlock != prev.fireplaceData!.passwordBlock,
       builder: (context, state) => TextField(
         maxLength: 4,
         onChanged: (password) {
@@ -127,7 +125,10 @@ class _TextFieldState extends State<_TextField> {
           focusColor: myColorActivity,
           hoverColor: myColorActivity,
           filled: true,
-          fillColor: isValidate ? myTwoColor : Colors.red,
+          labelText: isValidate ? null : "Неправильный пароль",
+          labelStyle:
+              myTextStyleFontRoboto(textColor: isValidate ? null : Colors.red),
+          fillColor: myTwoColor,
           border: const UnderlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(10))),
         ),

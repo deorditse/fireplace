@@ -34,7 +34,7 @@ void myBottomSnackBar(
                 offset: Offset(0, 4),
               )
             ],
-            color: Colors.white,
+            color: Colors.black,
             borderRadius: BorderRadius.circular(16),
             border: Border.all(
               color: const Color.fromRGBO(38, 38, 38, 0.15),

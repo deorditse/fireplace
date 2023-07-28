@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:business_layout/business_layout.dart';
 
+import 'package:models/models.dart';
 import 'widgets/body_block_fireplace.dart';
 import '../../../widgets/body_fireplace_connected_page/components/bottom_row_with_parameters.dart';
 
@@ -22,11 +23,9 @@ class BlockPage extends StatelessWidget {
               ?.model,
         ),
         const Expanded(
-          child: Center(
-            child: BodyBlockFireplace(),
-          ),
+          child: BodyBlockFireplace(),
         ),
-        const BottomRowWithParameters(),
+        if (!RootConstApp.isTestMode) const BottomRowWithParameters(),
       ],
     );
   }

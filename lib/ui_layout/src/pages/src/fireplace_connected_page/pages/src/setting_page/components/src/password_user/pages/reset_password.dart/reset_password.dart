@@ -23,38 +23,37 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
         },
         child: Column(
           children: [
-            Row(
-              children: [
-                Expanded(
-                  child: Container(),
-                ),
-                Expanded(
-                  flex: 2,
-                  child: SvgPicture.asset(
-                    'assets/icons/header_logo.svg',
-                    semanticsLabel: 'header_logo',
-                    fit: BoxFit.contain,
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Container(),
                   ),
-                ),
-                Expanded(
-                  child: _buttonWithBack(context),
-                ),
-              ],
-            ),
-            Expanded(
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    SizedBox(height: 50),
-                    const TextFieldsResetPassword(),
-                    const Expanded(child: SizedBox()),
-                    rowWithDomain(context: context),
-                  ],
-                ),
+                  Expanded(
+                    flex: 2,
+                    child: SvgPicture.asset(
+                      'assets/icons/header_logo.svg',
+                      semanticsLabel: 'header_logo',
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                  Expanded(
+                    child: _buttonWithBack(context),
+                  ),
+                ],
               ),
             ),
+            const SizedBox(
+              height: 40,
+            ),
+            const Expanded(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: TextFieldsResetPassword(),
+              ),
+            ),
+            rowWithDomain(context: context),
           ],
         ),
       ),

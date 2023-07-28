@@ -1,3 +1,4 @@
+import 'package:fireplace/models/lib/models.dart';
 import 'package:fireplace/ui_layout/src/styles/styles.dart';
 import 'package:fireplace/ui_layout/src/widgets_for_all_pages/widgets_for_all_pages.dart';
 import 'package:flutter/material.dart';
@@ -17,13 +18,14 @@ class BodyConnectedPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ConnectedDirectlyBloc, ConnectedDirectlyState>(
       builder: (context, state) {
+        print(state.fireplaceData?.isBlocButton);
         if (state.failModel != null) {
           return ErrorFireplace(failModel: state.failModel!);
         } else if (state.fireplaceData != null) {
           if (state.fireplaceData!.isBlocButton) {
             return const BlockPage();
           } else if (state.isSettingButtonActive) {
-            return SettingPage();
+            return const SettingPage();
           } else {
             return Stack(
               children: [
@@ -64,6 +66,7 @@ class BodyConnectedPage extends StatelessWidget {
                       ),
                     ),
                     const Spacer(),
+                    if(!RootConstApp.isTestMode)
                     const BottomRowWithParameters(),
                   ],
                 ),

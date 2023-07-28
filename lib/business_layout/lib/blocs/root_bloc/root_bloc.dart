@@ -41,13 +41,15 @@ class RootBloc extends Bloc<RootEvent, RootState> {
       //проверка разрешений
       await _initPermissions().then((_) async {
         //инициализация hive
-        await _localNetworkStorage.instanceHiveStorage();
-        //получение данных о wifi сети
-        String? wifiName = (await NetworkInfo().getWifiName())?.toLowerCase();
-        String? ipAddressFireplace = await NetworkInfo().getWifiIP();
-
+        String? wifiName;
+        String? ipAddressFireplace;
         if (RootConstApp.isTestMode) {
           wifiName = "test mode wifi";
+        } else {
+          await _localNetworkStorage.instanceHiveStorage();
+          //получение данных о wifi сети
+          wifiName = (await NetworkInfo().getWifiName())?.toLowerCase();
+          ipAddressFireplace = await NetworkInfo().getWifiIP();
         }
 
         if (wifiName == null) {
@@ -124,11 +126,6 @@ class RootBloc extends Bloc<RootEvent, RootState> {
       if (await permission.isDenied) {
         await permission.request();
       }
-
-      // await [
-      //   Permission.locationWhenInUse,
-      //   Permission.locationAlways,
-      // ].request();
     } catch (e) {
       Logger().log(Level.error, '[root_bloc] _initPermissions catch error  $e');
     }

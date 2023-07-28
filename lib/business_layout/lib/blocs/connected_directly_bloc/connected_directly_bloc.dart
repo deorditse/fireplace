@@ -55,19 +55,23 @@ class ConnectedDirectlyBloc
 
   Future<void> _initialFireplaceData(
       {bool isStopTimerUpdateApp = false}) async {
-    //каждые milliseconds: 500 обновляю данные камина
-    Timer.periodic(
-      const Duration(milliseconds: 500),
-      (timer) async {
-        //для обновление данных каждые 2 секунды
-        if (!isStopTimerUpdateApp && _ipAddress.isNotEmpty) {
-          await _initialStartFireplaceData();
-        } else {
-          timer.cancel();
-          print('stopTimer');
-        }
-      },
-    );
+    if (RootConstApp.isTestMode) {
+      await _initialStartFireplaceData();
+    } else {
+      //каждые milliseconds: 500 обновляю данные камина
+      Timer.periodic(
+        const Duration(milliseconds: 500),
+        (timer) async {
+          //для обновление данных каждые 2 секунды
+          if (!isStopTimerUpdateApp && _ipAddress.isNotEmpty) {
+            await _initialStartFireplaceData();
+          } else {
+            timer.cancel();
+            print('stopTimer');
+          }
+        },
+      );
+    }
   }
 
   Future<void> _initialStartFireplaceData() async {
@@ -162,10 +166,20 @@ class ConnectedDirectlyBloc
   Future<void> _changeIsBlocButton(bool? isNewBlocButton) async {
     try {
       log("connected_directly_bloc _changeIsBlocButton isNewBlocButton $isNewBlocButton");
-      await _networkServices.blocUnblockFireplace(
-        isBlock: isNewBlocButton ?? true,
-        ipAdressFireplace: _ipAddress,
-      );
+
+      if (RootConstApp.isTestMode) {
+        emit(
+          state.copyWith(
+            fireplaceData: state.fireplaceData!
+                .copyWith(isBlocButton: isNewBlocButton ?? true),
+          ),
+        );
+      } else {
+        await _networkServices.blocUnblockFireplace(
+          isBlock: isNewBlocButton ?? true,
+          ipAdressFireplace: _ipAddress,
+        );
+      }
     } catch (e) {
       Logger().log(Level.error,
           '[connected_directly_bloc] _changeIsBlocButton catch error  $e');
@@ -175,6 +189,7 @@ class ConnectedDirectlyBloc
   void _changeIsSettingButton(bool? isNewSettingButton) {
     try {
       log("connected_directly_bloc _changeIsSettingButton isNewSettingButton $isNewSettingButton");
+
       emit(
         state.copyWith(
           isSettingButtonActive:
