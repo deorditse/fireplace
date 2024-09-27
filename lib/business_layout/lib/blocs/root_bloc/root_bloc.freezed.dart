@@ -12,7 +12,7 @@ part of 'root_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$RootEvent {
@@ -123,28 +123,34 @@ class _$RootEventCopyWithImpl<$Res, $Val extends RootEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of RootEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
-abstract class _$$_InitRootEventCopyWith<$Res> {
-  factory _$$_InitRootEventCopyWith(
-          _$_InitRootEvent value, $Res Function(_$_InitRootEvent) then) =
-      __$$_InitRootEventCopyWithImpl<$Res>;
+abstract class _$$InitRootEventImplCopyWith<$Res> {
+  factory _$$InitRootEventImplCopyWith(
+          _$InitRootEventImpl value, $Res Function(_$InitRootEventImpl) then) =
+      __$$InitRootEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_InitRootEventCopyWithImpl<$Res>
-    extends _$RootEventCopyWithImpl<$Res, _$_InitRootEvent>
-    implements _$$_InitRootEventCopyWith<$Res> {
-  __$$_InitRootEventCopyWithImpl(
-      _$_InitRootEvent _value, $Res Function(_$_InitRootEvent) _then)
+class __$$InitRootEventImplCopyWithImpl<$Res>
+    extends _$RootEventCopyWithImpl<$Res, _$InitRootEventImpl>
+    implements _$$InitRootEventImplCopyWith<$Res> {
+  __$$InitRootEventImplCopyWithImpl(
+      _$InitRootEventImpl _value, $Res Function(_$InitRootEventImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of RootEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$_InitRootEvent implements _InitRootEvent {
-  const _$_InitRootEvent();
+class _$InitRootEventImpl implements _InitRootEvent {
+  const _$InitRootEventImpl();
 
   @override
   String toString() {
@@ -152,9 +158,9 @@ class _$_InitRootEvent implements _InitRootEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_InitRootEvent);
+        (other.runtimeType == runtimeType && other is _$InitRootEventImpl);
   }
 
   @override
@@ -276,15 +282,15 @@ class _$_InitRootEvent implements _InitRootEvent {
 }
 
 abstract class _InitRootEvent implements RootEvent {
-  const factory _InitRootEvent() = _$_InitRootEvent;
+  const factory _InitRootEvent() = _$InitRootEventImpl;
 }
 
 /// @nodoc
-abstract class _$$_SaveFireplaceInLocalStorageRootEventCopyWith<$Res> {
-  factory _$$_SaveFireplaceInLocalStorageRootEventCopyWith(
-          _$_SaveFireplaceInLocalStorageRootEvent value,
-          $Res Function(_$_SaveFireplaceInLocalStorageRootEvent) then) =
-      __$$_SaveFireplaceInLocalStorageRootEventCopyWithImpl<$Res>;
+abstract class _$$SaveFireplaceInLocalStorageRootEventImplCopyWith<$Res> {
+  factory _$$SaveFireplaceInLocalStorageRootEventImplCopyWith(
+          _$SaveFireplaceInLocalStorageRootEventImpl value,
+          $Res Function(_$SaveFireplaceInLocalStorageRootEventImpl) then) =
+      __$$SaveFireplaceInLocalStorageRootEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({HomeNetworkModel homeNetworkModel});
 
@@ -292,21 +298,23 @@ abstract class _$$_SaveFireplaceInLocalStorageRootEventCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_SaveFireplaceInLocalStorageRootEventCopyWithImpl<$Res>
+class __$$SaveFireplaceInLocalStorageRootEventImplCopyWithImpl<$Res>
     extends _$RootEventCopyWithImpl<$Res,
-        _$_SaveFireplaceInLocalStorageRootEvent>
-    implements _$$_SaveFireplaceInLocalStorageRootEventCopyWith<$Res> {
-  __$$_SaveFireplaceInLocalStorageRootEventCopyWithImpl(
-      _$_SaveFireplaceInLocalStorageRootEvent _value,
-      $Res Function(_$_SaveFireplaceInLocalStorageRootEvent) _then)
+        _$SaveFireplaceInLocalStorageRootEventImpl>
+    implements _$$SaveFireplaceInLocalStorageRootEventImplCopyWith<$Res> {
+  __$$SaveFireplaceInLocalStorageRootEventImplCopyWithImpl(
+      _$SaveFireplaceInLocalStorageRootEventImpl _value,
+      $Res Function(_$SaveFireplaceInLocalStorageRootEventImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of RootEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? homeNetworkModel = null,
   }) {
-    return _then(_$_SaveFireplaceInLocalStorageRootEvent(
+    return _then(_$SaveFireplaceInLocalStorageRootEventImpl(
       homeNetworkModel: null == homeNetworkModel
           ? _value.homeNetworkModel
           : homeNetworkModel // ignore: cast_nullable_to_non_nullable
@@ -314,6 +322,8 @@ class __$$_SaveFireplaceInLocalStorageRootEventCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of RootEvent
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $HomeNetworkModelCopyWith<$Res> get homeNetworkModel {
@@ -325,9 +335,9 @@ class __$$_SaveFireplaceInLocalStorageRootEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SaveFireplaceInLocalStorageRootEvent
+class _$SaveFireplaceInLocalStorageRootEventImpl
     implements _SaveFireplaceInLocalStorageRootEvent {
-  const _$_SaveFireplaceInLocalStorageRootEvent(
+  const _$SaveFireplaceInLocalStorageRootEventImpl(
       {required this.homeNetworkModel});
 
   @override
@@ -339,10 +349,10 @@ class _$_SaveFireplaceInLocalStorageRootEvent
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SaveFireplaceInLocalStorageRootEvent &&
+            other is _$SaveFireplaceInLocalStorageRootEventImpl &&
             (identical(other.homeNetworkModel, homeNetworkModel) ||
                 other.homeNetworkModel == homeNetworkModel));
   }
@@ -350,13 +360,15 @@ class _$_SaveFireplaceInLocalStorageRootEvent
   @override
   int get hashCode => Object.hash(runtimeType, homeNetworkModel);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RootEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SaveFireplaceInLocalStorageRootEventCopyWith<
-          _$_SaveFireplaceInLocalStorageRootEvent>
-      get copyWith => __$$_SaveFireplaceInLocalStorageRootEventCopyWithImpl<
-          _$_SaveFireplaceInLocalStorageRootEvent>(this, _$identity);
+  _$$SaveFireplaceInLocalStorageRootEventImplCopyWith<
+          _$SaveFireplaceInLocalStorageRootEventImpl>
+      get copyWith => __$$SaveFireplaceInLocalStorageRootEventImplCopyWithImpl<
+          _$SaveFireplaceInLocalStorageRootEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -476,42 +488,47 @@ class _$_SaveFireplaceInLocalStorageRootEvent
 abstract class _SaveFireplaceInLocalStorageRootEvent implements RootEvent {
   const factory _SaveFireplaceInLocalStorageRootEvent(
           {required final HomeNetworkModel homeNetworkModel}) =
-      _$_SaveFireplaceInLocalStorageRootEvent;
+      _$SaveFireplaceInLocalStorageRootEventImpl;
 
   HomeNetworkModel get homeNetworkModel;
-  @JsonKey(ignore: true)
-  _$$_SaveFireplaceInLocalStorageRootEventCopyWith<
-          _$_SaveFireplaceInLocalStorageRootEvent>
+
+  /// Create a copy of RootEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SaveFireplaceInLocalStorageRootEventImplCopyWith<
+          _$SaveFireplaceInLocalStorageRootEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_AddFireplaceInLocalStorageRootEventCopyWith<$Res> {
-  factory _$$_AddFireplaceInLocalStorageRootEventCopyWith(
-          _$_AddFireplaceInLocalStorageRootEvent value,
-          $Res Function(_$_AddFireplaceInLocalStorageRootEvent) then) =
-      __$$_AddFireplaceInLocalStorageRootEventCopyWithImpl<$Res>;
+abstract class _$$AddFireplaceInLocalStorageRootEventImplCopyWith<$Res> {
+  factory _$$AddFireplaceInLocalStorageRootEventImplCopyWith(
+          _$AddFireplaceInLocalStorageRootEventImpl value,
+          $Res Function(_$AddFireplaceInLocalStorageRootEventImpl) then) =
+      __$$AddFireplaceInLocalStorageRootEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String nameHomeWifiNetwork, String password});
 }
 
 /// @nodoc
-class __$$_AddFireplaceInLocalStorageRootEventCopyWithImpl<$Res>
+class __$$AddFireplaceInLocalStorageRootEventImplCopyWithImpl<$Res>
     extends _$RootEventCopyWithImpl<$Res,
-        _$_AddFireplaceInLocalStorageRootEvent>
-    implements _$$_AddFireplaceInLocalStorageRootEventCopyWith<$Res> {
-  __$$_AddFireplaceInLocalStorageRootEventCopyWithImpl(
-      _$_AddFireplaceInLocalStorageRootEvent _value,
-      $Res Function(_$_AddFireplaceInLocalStorageRootEvent) _then)
+        _$AddFireplaceInLocalStorageRootEventImpl>
+    implements _$$AddFireplaceInLocalStorageRootEventImplCopyWith<$Res> {
+  __$$AddFireplaceInLocalStorageRootEventImplCopyWithImpl(
+      _$AddFireplaceInLocalStorageRootEventImpl _value,
+      $Res Function(_$AddFireplaceInLocalStorageRootEventImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of RootEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? nameHomeWifiNetwork = null,
     Object? password = null,
   }) {
-    return _then(_$_AddFireplaceInLocalStorageRootEvent(
+    return _then(_$AddFireplaceInLocalStorageRootEventImpl(
       nameHomeWifiNetwork: null == nameHomeWifiNetwork
           ? _value.nameHomeWifiNetwork
           : nameHomeWifiNetwork // ignore: cast_nullable_to_non_nullable
@@ -526,9 +543,9 @@ class __$$_AddFireplaceInLocalStorageRootEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AddFireplaceInLocalStorageRootEvent
+class _$AddFireplaceInLocalStorageRootEventImpl
     implements _AddFireplaceInLocalStorageRootEvent {
-  const _$_AddFireplaceInLocalStorageRootEvent(
+  const _$AddFireplaceInLocalStorageRootEventImpl(
       {required this.nameHomeWifiNetwork, required this.password});
 
   @override
@@ -542,10 +559,10 @@ class _$_AddFireplaceInLocalStorageRootEvent
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AddFireplaceInLocalStorageRootEvent &&
+            other is _$AddFireplaceInLocalStorageRootEventImpl &&
             (identical(other.nameHomeWifiNetwork, nameHomeWifiNetwork) ||
                 other.nameHomeWifiNetwork == nameHomeWifiNetwork) &&
             (identical(other.password, password) ||
@@ -555,13 +572,15 @@ class _$_AddFireplaceInLocalStorageRootEvent
   @override
   int get hashCode => Object.hash(runtimeType, nameHomeWifiNetwork, password);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RootEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AddFireplaceInLocalStorageRootEventCopyWith<
-          _$_AddFireplaceInLocalStorageRootEvent>
-      get copyWith => __$$_AddFireplaceInLocalStorageRootEventCopyWithImpl<
-          _$_AddFireplaceInLocalStorageRootEvent>(this, _$identity);
+  _$$AddFireplaceInLocalStorageRootEventImplCopyWith<
+          _$AddFireplaceInLocalStorageRootEventImpl>
+      get copyWith => __$$AddFireplaceInLocalStorageRootEventImplCopyWithImpl<
+          _$AddFireplaceInLocalStorageRootEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -680,23 +699,29 @@ class _$_AddFireplaceInLocalStorageRootEvent
 
 abstract class _AddFireplaceInLocalStorageRootEvent implements RootEvent {
   const factory _AddFireplaceInLocalStorageRootEvent(
-      {required final String nameHomeWifiNetwork,
-      required final String password}) = _$_AddFireplaceInLocalStorageRootEvent;
+          {required final String nameHomeWifiNetwork,
+          required final String password}) =
+      _$AddFireplaceInLocalStorageRootEventImpl;
 
   String get nameHomeWifiNetwork;
   String get password;
-  @JsonKey(ignore: true)
-  _$$_AddFireplaceInLocalStorageRootEventCopyWith<
-          _$_AddFireplaceInLocalStorageRootEvent>
+
+  /// Create a copy of RootEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AddFireplaceInLocalStorageRootEventImplCopyWith<
+          _$AddFireplaceInLocalStorageRootEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_ChangeFireplaceDataFromLocalStorageRootEventCopyWith<$Res> {
-  factory _$$_ChangeFireplaceDataFromLocalStorageRootEventCopyWith(
-          _$_ChangeFireplaceDataFromLocalStorageRootEvent value,
-          $Res Function(_$_ChangeFireplaceDataFromLocalStorageRootEvent) then) =
-      __$$_ChangeFireplaceDataFromLocalStorageRootEventCopyWithImpl<$Res>;
+abstract class _$$ChangeFireplaceDataFromLocalStorageRootEventImplCopyWith<
+    $Res> {
+  factory _$$ChangeFireplaceDataFromLocalStorageRootEventImplCopyWith(
+          _$ChangeFireplaceDataFromLocalStorageRootEventImpl value,
+          $Res Function(_$ChangeFireplaceDataFromLocalStorageRootEventImpl)
+              then) =
+      __$$ChangeFireplaceDataFromLocalStorageRootEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({HomeNetworkModel homeNetworkModel});
 
@@ -704,21 +729,24 @@ abstract class _$$_ChangeFireplaceDataFromLocalStorageRootEventCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ChangeFireplaceDataFromLocalStorageRootEventCopyWithImpl<$Res>
+class __$$ChangeFireplaceDataFromLocalStorageRootEventImplCopyWithImpl<$Res>
     extends _$RootEventCopyWithImpl<$Res,
-        _$_ChangeFireplaceDataFromLocalStorageRootEvent>
-    implements _$$_ChangeFireplaceDataFromLocalStorageRootEventCopyWith<$Res> {
-  __$$_ChangeFireplaceDataFromLocalStorageRootEventCopyWithImpl(
-      _$_ChangeFireplaceDataFromLocalStorageRootEvent _value,
-      $Res Function(_$_ChangeFireplaceDataFromLocalStorageRootEvent) _then)
+        _$ChangeFireplaceDataFromLocalStorageRootEventImpl>
+    implements
+        _$$ChangeFireplaceDataFromLocalStorageRootEventImplCopyWith<$Res> {
+  __$$ChangeFireplaceDataFromLocalStorageRootEventImplCopyWithImpl(
+      _$ChangeFireplaceDataFromLocalStorageRootEventImpl _value,
+      $Res Function(_$ChangeFireplaceDataFromLocalStorageRootEventImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of RootEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? homeNetworkModel = null,
   }) {
-    return _then(_$_ChangeFireplaceDataFromLocalStorageRootEvent(
+    return _then(_$ChangeFireplaceDataFromLocalStorageRootEventImpl(
       homeNetworkModel: null == homeNetworkModel
           ? _value.homeNetworkModel
           : homeNetworkModel // ignore: cast_nullable_to_non_nullable
@@ -726,6 +754,8 @@ class __$$_ChangeFireplaceDataFromLocalStorageRootEventCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of RootEvent
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $HomeNetworkModelCopyWith<$Res> get homeNetworkModel {
@@ -737,9 +767,9 @@ class __$$_ChangeFireplaceDataFromLocalStorageRootEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChangeFireplaceDataFromLocalStorageRootEvent
+class _$ChangeFireplaceDataFromLocalStorageRootEventImpl
     implements _ChangeFireplaceDataFromLocalStorageRootEvent {
-  const _$_ChangeFireplaceDataFromLocalStorageRootEvent(
+  const _$ChangeFireplaceDataFromLocalStorageRootEventImpl(
       {required this.homeNetworkModel});
 
   @override
@@ -751,10 +781,10 @@ class _$_ChangeFireplaceDataFromLocalStorageRootEvent
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ChangeFireplaceDataFromLocalStorageRootEvent &&
+            other is _$ChangeFireplaceDataFromLocalStorageRootEventImpl &&
             (identical(other.homeNetworkModel, homeNetworkModel) ||
                 other.homeNetworkModel == homeNetworkModel));
   }
@@ -762,14 +792,16 @@ class _$_ChangeFireplaceDataFromLocalStorageRootEvent
   @override
   int get hashCode => Object.hash(runtimeType, homeNetworkModel);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RootEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ChangeFireplaceDataFromLocalStorageRootEventCopyWith<
-          _$_ChangeFireplaceDataFromLocalStorageRootEvent>
+  _$$ChangeFireplaceDataFromLocalStorageRootEventImplCopyWith<
+          _$ChangeFireplaceDataFromLocalStorageRootEventImpl>
       get copyWith =>
-          __$$_ChangeFireplaceDataFromLocalStorageRootEventCopyWithImpl<
-                  _$_ChangeFireplaceDataFromLocalStorageRootEvent>(
+          __$$ChangeFireplaceDataFromLocalStorageRootEventImplCopyWithImpl<
+                  _$ChangeFireplaceDataFromLocalStorageRootEventImpl>(
               this, _$identity);
 
   @override
@@ -891,42 +923,47 @@ abstract class _ChangeFireplaceDataFromLocalStorageRootEvent
     implements RootEvent {
   const factory _ChangeFireplaceDataFromLocalStorageRootEvent(
           {required final HomeNetworkModel homeNetworkModel}) =
-      _$_ChangeFireplaceDataFromLocalStorageRootEvent;
+      _$ChangeFireplaceDataFromLocalStorageRootEventImpl;
 
   HomeNetworkModel get homeNetworkModel;
-  @JsonKey(ignore: true)
-  _$$_ChangeFireplaceDataFromLocalStorageRootEventCopyWith<
-          _$_ChangeFireplaceDataFromLocalStorageRootEvent>
+
+  /// Create a copy of RootEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ChangeFireplaceDataFromLocalStorageRootEventImplCopyWith<
+          _$ChangeFireplaceDataFromLocalStorageRootEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_DeleteFireplaceInLocalStorageRootEventCopyWith<$Res> {
-  factory _$$_DeleteFireplaceInLocalStorageRootEventCopyWith(
-          _$_DeleteFireplaceInLocalStorageRootEvent value,
-          $Res Function(_$_DeleteFireplaceInLocalStorageRootEvent) then) =
-      __$$_DeleteFireplaceInLocalStorageRootEventCopyWithImpl<$Res>;
+abstract class _$$DeleteFireplaceInLocalStorageRootEventImplCopyWith<$Res> {
+  factory _$$DeleteFireplaceInLocalStorageRootEventImplCopyWith(
+          _$DeleteFireplaceInLocalStorageRootEventImpl value,
+          $Res Function(_$DeleteFireplaceInLocalStorageRootEventImpl) then) =
+      __$$DeleteFireplaceInLocalStorageRootEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String keyWifiName, String keyMacAddress});
 }
 
 /// @nodoc
-class __$$_DeleteFireplaceInLocalStorageRootEventCopyWithImpl<$Res>
+class __$$DeleteFireplaceInLocalStorageRootEventImplCopyWithImpl<$Res>
     extends _$RootEventCopyWithImpl<$Res,
-        _$_DeleteFireplaceInLocalStorageRootEvent>
-    implements _$$_DeleteFireplaceInLocalStorageRootEventCopyWith<$Res> {
-  __$$_DeleteFireplaceInLocalStorageRootEventCopyWithImpl(
-      _$_DeleteFireplaceInLocalStorageRootEvent _value,
-      $Res Function(_$_DeleteFireplaceInLocalStorageRootEvent) _then)
+        _$DeleteFireplaceInLocalStorageRootEventImpl>
+    implements _$$DeleteFireplaceInLocalStorageRootEventImplCopyWith<$Res> {
+  __$$DeleteFireplaceInLocalStorageRootEventImplCopyWithImpl(
+      _$DeleteFireplaceInLocalStorageRootEventImpl _value,
+      $Res Function(_$DeleteFireplaceInLocalStorageRootEventImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of RootEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? keyWifiName = null,
     Object? keyMacAddress = null,
   }) {
-    return _then(_$_DeleteFireplaceInLocalStorageRootEvent(
+    return _then(_$DeleteFireplaceInLocalStorageRootEventImpl(
       keyWifiName: null == keyWifiName
           ? _value.keyWifiName
           : keyWifiName // ignore: cast_nullable_to_non_nullable
@@ -941,9 +978,9 @@ class __$$_DeleteFireplaceInLocalStorageRootEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DeleteFireplaceInLocalStorageRootEvent
+class _$DeleteFireplaceInLocalStorageRootEventImpl
     implements _DeleteFireplaceInLocalStorageRootEvent {
-  const _$_DeleteFireplaceInLocalStorageRootEvent(
+  const _$DeleteFireplaceInLocalStorageRootEventImpl(
       {required this.keyWifiName, required this.keyMacAddress});
 
   @override
@@ -957,10 +994,10 @@ class _$_DeleteFireplaceInLocalStorageRootEvent
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DeleteFireplaceInLocalStorageRootEvent &&
+            other is _$DeleteFireplaceInLocalStorageRootEventImpl &&
             (identical(other.keyWifiName, keyWifiName) ||
                 other.keyWifiName == keyWifiName) &&
             (identical(other.keyMacAddress, keyMacAddress) ||
@@ -970,13 +1007,16 @@ class _$_DeleteFireplaceInLocalStorageRootEvent
   @override
   int get hashCode => Object.hash(runtimeType, keyWifiName, keyMacAddress);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RootEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DeleteFireplaceInLocalStorageRootEventCopyWith<
-          _$_DeleteFireplaceInLocalStorageRootEvent>
-      get copyWith => __$$_DeleteFireplaceInLocalStorageRootEventCopyWithImpl<
-          _$_DeleteFireplaceInLocalStorageRootEvent>(this, _$identity);
+  _$$DeleteFireplaceInLocalStorageRootEventImplCopyWith<
+          _$DeleteFireplaceInLocalStorageRootEventImpl>
+      get copyWith =>
+          __$$DeleteFireplaceInLocalStorageRootEventImplCopyWithImpl<
+              _$DeleteFireplaceInLocalStorageRootEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1097,41 +1137,46 @@ abstract class _DeleteFireplaceInLocalStorageRootEvent implements RootEvent {
   const factory _DeleteFireplaceInLocalStorageRootEvent(
           {required final String keyWifiName,
           required final String keyMacAddress}) =
-      _$_DeleteFireplaceInLocalStorageRootEvent;
+      _$DeleteFireplaceInLocalStorageRootEventImpl;
 
   String get keyWifiName;
   String get keyMacAddress;
-  @JsonKey(ignore: true)
-  _$$_DeleteFireplaceInLocalStorageRootEventCopyWith<
-          _$_DeleteFireplaceInLocalStorageRootEvent>
+
+  /// Create a copy of RootEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$DeleteFireplaceInLocalStorageRootEventImplCopyWith<
+          _$DeleteFireplaceInLocalStorageRootEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_ViewDataInLocalStorageRootEventCopyWith<$Res> {
-  factory _$$_ViewDataInLocalStorageRootEventCopyWith(
-          _$_ViewDataInLocalStorageRootEvent value,
-          $Res Function(_$_ViewDataInLocalStorageRootEvent) then) =
-      __$$_ViewDataInLocalStorageRootEventCopyWithImpl<$Res>;
+abstract class _$$ViewDataInLocalStorageRootEventImplCopyWith<$Res> {
+  factory _$$ViewDataInLocalStorageRootEventImplCopyWith(
+          _$ViewDataInLocalStorageRootEventImpl value,
+          $Res Function(_$ViewDataInLocalStorageRootEventImpl) then) =
+      __$$ViewDataInLocalStorageRootEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String keyWifi});
 }
 
 /// @nodoc
-class __$$_ViewDataInLocalStorageRootEventCopyWithImpl<$Res>
-    extends _$RootEventCopyWithImpl<$Res, _$_ViewDataInLocalStorageRootEvent>
-    implements _$$_ViewDataInLocalStorageRootEventCopyWith<$Res> {
-  __$$_ViewDataInLocalStorageRootEventCopyWithImpl(
-      _$_ViewDataInLocalStorageRootEvent _value,
-      $Res Function(_$_ViewDataInLocalStorageRootEvent) _then)
+class __$$ViewDataInLocalStorageRootEventImplCopyWithImpl<$Res>
+    extends _$RootEventCopyWithImpl<$Res, _$ViewDataInLocalStorageRootEventImpl>
+    implements _$$ViewDataInLocalStorageRootEventImplCopyWith<$Res> {
+  __$$ViewDataInLocalStorageRootEventImplCopyWithImpl(
+      _$ViewDataInLocalStorageRootEventImpl _value,
+      $Res Function(_$ViewDataInLocalStorageRootEventImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of RootEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? keyWifi = null,
   }) {
-    return _then(_$_ViewDataInLocalStorageRootEvent(
+    return _then(_$ViewDataInLocalStorageRootEventImpl(
       keyWifi: null == keyWifi
           ? _value.keyWifi
           : keyWifi // ignore: cast_nullable_to_non_nullable
@@ -1142,9 +1187,9 @@ class __$$_ViewDataInLocalStorageRootEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ViewDataInLocalStorageRootEvent
+class _$ViewDataInLocalStorageRootEventImpl
     implements _ViewDataInLocalStorageRootEvent {
-  const _$_ViewDataInLocalStorageRootEvent({required this.keyWifi});
+  const _$ViewDataInLocalStorageRootEventImpl({required this.keyWifi});
 
   @override
   final String keyWifi;
@@ -1155,23 +1200,25 @@ class _$_ViewDataInLocalStorageRootEvent
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ViewDataInLocalStorageRootEvent &&
+            other is _$ViewDataInLocalStorageRootEventImpl &&
             (identical(other.keyWifi, keyWifi) || other.keyWifi == keyWifi));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, keyWifi);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RootEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ViewDataInLocalStorageRootEventCopyWith<
-          _$_ViewDataInLocalStorageRootEvent>
-      get copyWith => __$$_ViewDataInLocalStorageRootEventCopyWithImpl<
-          _$_ViewDataInLocalStorageRootEvent>(this, _$identity);
+  _$$ViewDataInLocalStorageRootEventImplCopyWith<
+          _$ViewDataInLocalStorageRootEventImpl>
+      get copyWith => __$$ViewDataInLocalStorageRootEventImplCopyWithImpl<
+          _$ViewDataInLocalStorageRootEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1290,12 +1337,15 @@ class _$_ViewDataInLocalStorageRootEvent
 
 abstract class _ViewDataInLocalStorageRootEvent implements RootEvent {
   const factory _ViewDataInLocalStorageRootEvent(
-      {required final String keyWifi}) = _$_ViewDataInLocalStorageRootEvent;
+      {required final String keyWifi}) = _$ViewDataInLocalStorageRootEventImpl;
 
   String get keyWifi;
-  @JsonKey(ignore: true)
-  _$$_ViewDataInLocalStorageRootEventCopyWith<
-          _$_ViewDataInLocalStorageRootEvent>
+
+  /// Create a copy of RootEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ViewDataInLocalStorageRootEventImplCopyWith<
+          _$ViewDataInLocalStorageRootEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -1310,7 +1360,9 @@ mixin _$RootState {
   List<HomeNetworkModel>? get listFireplacesFromLocalStorage =>
       throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RootState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $RootStateCopyWith<RootState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1342,6 +1394,8 @@ class _$RootStateCopyWithImpl<$Res, $Val extends RootState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of RootState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1380,6 +1434,8 @@ class _$RootStateCopyWithImpl<$Res, $Val extends RootState>
     ) as $Val);
   }
 
+  /// Create a copy of RootState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $FailModelCopyWith<$Res>? get failModel {
@@ -1392,6 +1448,8 @@ class _$RootStateCopyWithImpl<$Res, $Val extends RootState>
     });
   }
 
+  /// Create a copy of RootState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $HomeNetworkModelCopyWith<$Res>? get homeNetworkDataToLocalStorage {
@@ -1408,10 +1466,11 @@ class _$RootStateCopyWithImpl<$Res, $Val extends RootState>
 }
 
 /// @nodoc
-abstract class _$$_RootStateCopyWith<$Res> implements $RootStateCopyWith<$Res> {
-  factory _$$_RootStateCopyWith(
-          _$_RootState value, $Res Function(_$_RootState) then) =
-      __$$_RootStateCopyWithImpl<$Res>;
+abstract class _$$RootStateImplCopyWith<$Res>
+    implements $RootStateCopyWith<$Res> {
+  factory _$$RootStateImplCopyWith(
+          _$RootStateImpl value, $Res Function(_$RootStateImpl) then) =
+      __$$RootStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -1429,13 +1488,15 @@ abstract class _$$_RootStateCopyWith<$Res> implements $RootStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_RootStateCopyWithImpl<$Res>
-    extends _$RootStateCopyWithImpl<$Res, _$_RootState>
-    implements _$$_RootStateCopyWith<$Res> {
-  __$$_RootStateCopyWithImpl(
-      _$_RootState _value, $Res Function(_$_RootState) _then)
+class __$$RootStateImplCopyWithImpl<$Res>
+    extends _$RootStateCopyWithImpl<$Res, _$RootStateImpl>
+    implements _$$RootStateImplCopyWith<$Res> {
+  __$$RootStateImplCopyWithImpl(
+      _$RootStateImpl _value, $Res Function(_$RootStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of RootState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1446,7 +1507,7 @@ class __$$_RootStateCopyWithImpl<$Res>
     Object? homeNetworkDataToLocalStorage = freezed,
     Object? listFireplacesFromLocalStorage = freezed,
   }) {
-    return _then(_$_RootState(
+    return _then(_$RootStateImpl(
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -1471,8 +1532,8 @@ class __$$_RootStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_RootState implements _RootState {
-  const _$_RootState(
+class _$RootStateImpl implements _RootState {
+  const _$RootStateImpl(
       {this.isLoading = true,
       this.failModel,
       this.wifiName = "",
@@ -1511,10 +1572,10 @@ class _$_RootState implements _RootState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_RootState &&
+            other is _$RootStateImpl &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
             (identical(other.failModel, failModel) ||
@@ -1540,11 +1601,13 @@ class _$_RootState implements _RootState {
       homeNetworkDataToLocalStorage,
       const DeepCollectionEquality().hash(_listFireplacesFromLocalStorage));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RootState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RootStateCopyWith<_$_RootState> get copyWith =>
-      __$$_RootStateCopyWithImpl<_$_RootState>(this, _$identity);
+  _$$RootStateImplCopyWith<_$RootStateImpl> get copyWith =>
+      __$$RootStateImplCopyWithImpl<_$RootStateImpl>(this, _$identity);
 }
 
 abstract class _RootState implements RootState {
@@ -1555,7 +1618,7 @@ abstract class _RootState implements RootState {
           final dynamic ipAddress,
           final HomeNetworkModel? homeNetworkDataToLocalStorage,
           final List<HomeNetworkModel>? listFireplacesFromLocalStorage}) =
-      _$_RootState;
+      _$RootStateImpl;
 
   @override
   bool get isLoading;
@@ -1569,8 +1632,11 @@ abstract class _RootState implements RootState {
   HomeNetworkModel? get homeNetworkDataToLocalStorage;
   @override
   List<HomeNetworkModel>? get listFireplacesFromLocalStorage;
+
+  /// Create a copy of RootState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_RootStateCopyWith<_$_RootState> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$RootStateImplCopyWith<_$RootStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

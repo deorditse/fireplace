@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:developer';
+import 'dart:ui';
 
 import 'package:data_layout/data_layout.dart';
 import 'package:logger/logger.dart';
@@ -14,13 +15,39 @@ part 'connected_directly_state.dart';
 part 'connected_directly_bloc.freezed.dart';
 
 // flutter pub run build_runner build --delete-conflicting-outputs
+
+class TimerFireplace {
+  Timer? timer;
+
+  void start(Future<void> callback) {
+    timer = Timer.periodic(
+      const Duration(milliseconds: 500),
+      (timer) async {
+        //для обновление данных каждые 2 секунды
+        if (timer.isActive) {
+          await callback;
+        }
+      },
+    );
+  }
+
+  void stop() {
+    timer?.cancel();
+  }
+}
+
 class ConnectedDirectlyBloc
     extends Bloc<ConnectedDirectlyEvent, ConnectedDirectlyState> {
   String _wifiName = '';
   String _ipAddress = '';
   final NetworkServices _networkServices = NetworkServices();
 
-  ConnectedDirectlyBloc() : super(const ConnectedDirectlyState()) {
+  ConnectedDirectlyBloc({
+    required String wiFiName,
+    required String ipAddress,
+  }) : super(const ConnectedDirectlyState()) {
+    _wifiName = wiFiName;
+    _ipAddress = ipAddress;
     on<ConnectedDirectlyEvent>(
       (ConnectedDirectlyEvent event, _) {
         event.when<void>(
@@ -37,14 +64,11 @@ class ConnectedDirectlyBloc
     );
   }
 
-  Future<void> _onInit(String wifiName, String ipAddress) async {
+  Future<void> _onInit() async {
     try {
-      log("connected_directly_bloc _onInit wifiName $wifiName ipAddress $ipAddress");
-      _wifiName = wifiName;
-      _ipAddress = ipAddress;
       emit(state.copyWith(
         fireplaceData:
-            state.fireplaceData?.copyWith(ipAdreesInLocalWiFi: ipAddress),
+            state.fireplaceData?.copyWith(ipAdreesInLocalWiFi: _ipAddress),
       ));
       _initialFireplaceData();
     } catch (e) {
@@ -58,19 +82,13 @@ class ConnectedDirectlyBloc
     if (RootConstApp.isTestMode) {
       await _initialStartFireplaceData();
     } else {
-      //каждые milliseconds: 500 обновляю данные камина
-      Timer.periodic(
-        const Duration(milliseconds: 500),
-        (timer) async {
-          //для обновление данных каждые 2 секунды
-          if (!isStopTimerUpdateApp && _ipAddress.isNotEmpty) {
-            await _initialStartFireplaceData();
-          } else {
-            timer.cancel();
-            print('stopTimer');
-          }
-        },
-      );
+      final timer = TimerFireplace();
+      if (isStopTimerUpdateApp || _ipAddress.isEmpty) {
+        timer.stop();
+        return;
+      }
+
+      timer.start(_initialStartFireplaceData());
     }
   }
 

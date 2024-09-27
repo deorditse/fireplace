@@ -12,7 +12,7 @@ part of 'setting_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$SettingEvent {
@@ -103,31 +103,36 @@ class _$SettingEventCopyWithImpl<$Res, $Val extends SettingEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of SettingEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
-abstract class _$$_OnInitSettingEventCopyWith<$Res> {
-  factory _$$_OnInitSettingEventCopyWith(_$_OnInitSettingEvent value,
-          $Res Function(_$_OnInitSettingEvent) then) =
-      __$$_OnInitSettingEventCopyWithImpl<$Res>;
+abstract class _$$OnInitSettingEventImplCopyWith<$Res> {
+  factory _$$OnInitSettingEventImplCopyWith(_$OnInitSettingEventImpl value,
+          $Res Function(_$OnInitSettingEventImpl) then) =
+      __$$OnInitSettingEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String ipAddress});
 }
 
 /// @nodoc
-class __$$_OnInitSettingEventCopyWithImpl<$Res>
-    extends _$SettingEventCopyWithImpl<$Res, _$_OnInitSettingEvent>
-    implements _$$_OnInitSettingEventCopyWith<$Res> {
-  __$$_OnInitSettingEventCopyWithImpl(
-      _$_OnInitSettingEvent _value, $Res Function(_$_OnInitSettingEvent) _then)
+class __$$OnInitSettingEventImplCopyWithImpl<$Res>
+    extends _$SettingEventCopyWithImpl<$Res, _$OnInitSettingEventImpl>
+    implements _$$OnInitSettingEventImplCopyWith<$Res> {
+  __$$OnInitSettingEventImplCopyWithImpl(_$OnInitSettingEventImpl _value,
+      $Res Function(_$OnInitSettingEventImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SettingEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? ipAddress = null,
   }) {
-    return _then(_$_OnInitSettingEvent(
+    return _then(_$OnInitSettingEventImpl(
       ipAddress: null == ipAddress
           ? _value.ipAddress
           : ipAddress // ignore: cast_nullable_to_non_nullable
@@ -138,8 +143,8 @@ class __$$_OnInitSettingEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_OnInitSettingEvent implements _OnInitSettingEvent {
-  const _$_OnInitSettingEvent({required this.ipAddress});
+class _$OnInitSettingEventImpl implements _OnInitSettingEvent {
+  const _$OnInitSettingEventImpl({required this.ipAddress});
 
   @override
   final String ipAddress;
@@ -150,10 +155,10 @@ class _$_OnInitSettingEvent implements _OnInitSettingEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_OnInitSettingEvent &&
+            other is _$OnInitSettingEventImpl &&
             (identical(other.ipAddress, ipAddress) ||
                 other.ipAddress == ipAddress));
   }
@@ -161,11 +166,13 @@ class _$_OnInitSettingEvent implements _OnInitSettingEvent {
   @override
   int get hashCode => Object.hash(runtimeType, ipAddress);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SettingEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_OnInitSettingEventCopyWith<_$_OnInitSettingEvent> get copyWith =>
-      __$$_OnInitSettingEventCopyWithImpl<_$_OnInitSettingEvent>(
+  _$$OnInitSettingEventImplCopyWith<_$OnInitSettingEventImpl> get copyWith =>
+      __$$OnInitSettingEventImplCopyWithImpl<_$OnInitSettingEventImpl>(
           this, _$identity);
 
   @override
@@ -264,40 +271,48 @@ class _$_OnInitSettingEvent implements _OnInitSettingEvent {
 
 abstract class _OnInitSettingEvent implements SettingEvent {
   const factory _OnInitSettingEvent({required final String ipAddress}) =
-      _$_OnInitSettingEvent;
+      _$OnInitSettingEventImpl;
 
   String get ipAddress;
-  @JsonKey(ignore: true)
-  _$$_OnInitSettingEventCopyWith<_$_OnInitSettingEvent> get copyWith =>
+
+  /// Create a copy of SettingEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$OnInitSettingEventImplCopyWith<_$OnInitSettingEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_ChangeValueCracklingSoundEffectSettingEventCopyWith<$Res> {
-  factory _$$_ChangeValueCracklingSoundEffectSettingEventCopyWith(
-          _$_ChangeValueCracklingSoundEffectSettingEvent value,
-          $Res Function(_$_ChangeValueCracklingSoundEffectSettingEvent) then) =
-      __$$_ChangeValueCracklingSoundEffectSettingEventCopyWithImpl<$Res>;
+abstract class _$$ChangeValueCracklingSoundEffectSettingEventImplCopyWith<
+    $Res> {
+  factory _$$ChangeValueCracklingSoundEffectSettingEventImplCopyWith(
+          _$ChangeValueCracklingSoundEffectSettingEventImpl value,
+          $Res Function(_$ChangeValueCracklingSoundEffectSettingEventImpl)
+              then) =
+      __$$ChangeValueCracklingSoundEffectSettingEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int value});
 }
 
 /// @nodoc
-class __$$_ChangeValueCracklingSoundEffectSettingEventCopyWithImpl<$Res>
+class __$$ChangeValueCracklingSoundEffectSettingEventImplCopyWithImpl<$Res>
     extends _$SettingEventCopyWithImpl<$Res,
-        _$_ChangeValueCracklingSoundEffectSettingEvent>
-    implements _$$_ChangeValueCracklingSoundEffectSettingEventCopyWith<$Res> {
-  __$$_ChangeValueCracklingSoundEffectSettingEventCopyWithImpl(
-      _$_ChangeValueCracklingSoundEffectSettingEvent _value,
-      $Res Function(_$_ChangeValueCracklingSoundEffectSettingEvent) _then)
+        _$ChangeValueCracklingSoundEffectSettingEventImpl>
+    implements
+        _$$ChangeValueCracklingSoundEffectSettingEventImplCopyWith<$Res> {
+  __$$ChangeValueCracklingSoundEffectSettingEventImplCopyWithImpl(
+      _$ChangeValueCracklingSoundEffectSettingEventImpl _value,
+      $Res Function(_$ChangeValueCracklingSoundEffectSettingEventImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SettingEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? value = null,
   }) {
-    return _then(_$_ChangeValueCracklingSoundEffectSettingEvent(
+    return _then(_$ChangeValueCracklingSoundEffectSettingEventImpl(
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -308,9 +323,10 @@ class __$$_ChangeValueCracklingSoundEffectSettingEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChangeValueCracklingSoundEffectSettingEvent
+class _$ChangeValueCracklingSoundEffectSettingEventImpl
     implements _ChangeValueCracklingSoundEffectSettingEvent {
-  const _$_ChangeValueCracklingSoundEffectSettingEvent({required this.value});
+  const _$ChangeValueCracklingSoundEffectSettingEventImpl(
+      {required this.value});
 
   @override
   final int value;
@@ -321,24 +337,27 @@ class _$_ChangeValueCracklingSoundEffectSettingEvent
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ChangeValueCracklingSoundEffectSettingEvent &&
+            other is _$ChangeValueCracklingSoundEffectSettingEventImpl &&
             (identical(other.value, value) || other.value == value));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, value);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SettingEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ChangeValueCracklingSoundEffectSettingEventCopyWith<
-          _$_ChangeValueCracklingSoundEffectSettingEvent>
+  _$$ChangeValueCracklingSoundEffectSettingEventImplCopyWith<
+          _$ChangeValueCracklingSoundEffectSettingEventImpl>
       get copyWith =>
-          __$$_ChangeValueCracklingSoundEffectSettingEventCopyWithImpl<
-              _$_ChangeValueCracklingSoundEffectSettingEvent>(this, _$identity);
+          __$$ChangeValueCracklingSoundEffectSettingEventImplCopyWithImpl<
+                  _$ChangeValueCracklingSoundEffectSettingEventImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -438,41 +457,49 @@ abstract class _ChangeValueCracklingSoundEffectSettingEvent
     implements SettingEvent {
   const factory _ChangeValueCracklingSoundEffectSettingEvent(
           {required final int value}) =
-      _$_ChangeValueCracklingSoundEffectSettingEvent;
+      _$ChangeValueCracklingSoundEffectSettingEventImpl;
 
   int get value;
-  @JsonKey(ignore: true)
-  _$$_ChangeValueCracklingSoundEffectSettingEventCopyWith<
-          _$_ChangeValueCracklingSoundEffectSettingEvent>
+
+  /// Create a copy of SettingEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ChangeValueCracklingSoundEffectSettingEventImplCopyWith<
+          _$ChangeValueCracklingSoundEffectSettingEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_ChangeSwitchCracklingSoundEffectSettingEventCopyWith<$Res> {
-  factory _$$_ChangeSwitchCracklingSoundEffectSettingEventCopyWith(
-          _$_ChangeSwitchCracklingSoundEffectSettingEvent value,
-          $Res Function(_$_ChangeSwitchCracklingSoundEffectSettingEvent) then) =
-      __$$_ChangeSwitchCracklingSoundEffectSettingEventCopyWithImpl<$Res>;
+abstract class _$$ChangeSwitchCracklingSoundEffectSettingEventImplCopyWith<
+    $Res> {
+  factory _$$ChangeSwitchCracklingSoundEffectSettingEventImplCopyWith(
+          _$ChangeSwitchCracklingSoundEffectSettingEventImpl value,
+          $Res Function(_$ChangeSwitchCracklingSoundEffectSettingEventImpl)
+              then) =
+      __$$ChangeSwitchCracklingSoundEffectSettingEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({bool isCrack});
 }
 
 /// @nodoc
-class __$$_ChangeSwitchCracklingSoundEffectSettingEventCopyWithImpl<$Res>
+class __$$ChangeSwitchCracklingSoundEffectSettingEventImplCopyWithImpl<$Res>
     extends _$SettingEventCopyWithImpl<$Res,
-        _$_ChangeSwitchCracklingSoundEffectSettingEvent>
-    implements _$$_ChangeSwitchCracklingSoundEffectSettingEventCopyWith<$Res> {
-  __$$_ChangeSwitchCracklingSoundEffectSettingEventCopyWithImpl(
-      _$_ChangeSwitchCracklingSoundEffectSettingEvent _value,
-      $Res Function(_$_ChangeSwitchCracklingSoundEffectSettingEvent) _then)
+        _$ChangeSwitchCracklingSoundEffectSettingEventImpl>
+    implements
+        _$$ChangeSwitchCracklingSoundEffectSettingEventImplCopyWith<$Res> {
+  __$$ChangeSwitchCracklingSoundEffectSettingEventImplCopyWithImpl(
+      _$ChangeSwitchCracklingSoundEffectSettingEventImpl _value,
+      $Res Function(_$ChangeSwitchCracklingSoundEffectSettingEventImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SettingEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? isCrack = null,
   }) {
-    return _then(_$_ChangeSwitchCracklingSoundEffectSettingEvent(
+    return _then(_$ChangeSwitchCracklingSoundEffectSettingEventImpl(
       isCrack: null == isCrack
           ? _value.isCrack
           : isCrack // ignore: cast_nullable_to_non_nullable
@@ -483,9 +510,9 @@ class __$$_ChangeSwitchCracklingSoundEffectSettingEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChangeSwitchCracklingSoundEffectSettingEvent
+class _$ChangeSwitchCracklingSoundEffectSettingEventImpl
     implements _ChangeSwitchCracklingSoundEffectSettingEvent {
-  const _$_ChangeSwitchCracklingSoundEffectSettingEvent(
+  const _$ChangeSwitchCracklingSoundEffectSettingEventImpl(
       {required this.isCrack});
 
   @override
@@ -497,24 +524,26 @@ class _$_ChangeSwitchCracklingSoundEffectSettingEvent
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ChangeSwitchCracklingSoundEffectSettingEvent &&
+            other is _$ChangeSwitchCracklingSoundEffectSettingEventImpl &&
             (identical(other.isCrack, isCrack) || other.isCrack == isCrack));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, isCrack);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SettingEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ChangeSwitchCracklingSoundEffectSettingEventCopyWith<
-          _$_ChangeSwitchCracklingSoundEffectSettingEvent>
+  _$$ChangeSwitchCracklingSoundEffectSettingEventImplCopyWith<
+          _$ChangeSwitchCracklingSoundEffectSettingEventImpl>
       get copyWith =>
-          __$$_ChangeSwitchCracklingSoundEffectSettingEventCopyWithImpl<
-                  _$_ChangeSwitchCracklingSoundEffectSettingEvent>(
+          __$$ChangeSwitchCracklingSoundEffectSettingEventImplCopyWithImpl<
+                  _$ChangeSwitchCracklingSoundEffectSettingEventImpl>(
               this, _$identity);
 
   @override
@@ -615,41 +644,46 @@ abstract class _ChangeSwitchCracklingSoundEffectSettingEvent
     implements SettingEvent {
   const factory _ChangeSwitchCracklingSoundEffectSettingEvent(
           {required final bool isCrack}) =
-      _$_ChangeSwitchCracklingSoundEffectSettingEvent;
+      _$ChangeSwitchCracklingSoundEffectSettingEventImpl;
 
   bool get isCrack;
-  @JsonKey(ignore: true)
-  _$$_ChangeSwitchCracklingSoundEffectSettingEventCopyWith<
-          _$_ChangeSwitchCracklingSoundEffectSettingEvent>
+
+  /// Create a copy of SettingEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ChangeSwitchCracklingSoundEffectSettingEventImplCopyWith<
+          _$ChangeSwitchCracklingSoundEffectSettingEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_ChangeSwitchVoicePromptsSettingEventCopyWith<$Res> {
-  factory _$$_ChangeSwitchVoicePromptsSettingEventCopyWith(
-          _$_ChangeSwitchVoicePromptsSettingEvent value,
-          $Res Function(_$_ChangeSwitchVoicePromptsSettingEvent) then) =
-      __$$_ChangeSwitchVoicePromptsSettingEventCopyWithImpl<$Res>;
+abstract class _$$ChangeSwitchVoicePromptsSettingEventImplCopyWith<$Res> {
+  factory _$$ChangeSwitchVoicePromptsSettingEventImplCopyWith(
+          _$ChangeSwitchVoicePromptsSettingEventImpl value,
+          $Res Function(_$ChangeSwitchVoicePromptsSettingEventImpl) then) =
+      __$$ChangeSwitchVoicePromptsSettingEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({bool isVoicePrompts});
 }
 
 /// @nodoc
-class __$$_ChangeSwitchVoicePromptsSettingEventCopyWithImpl<$Res>
+class __$$ChangeSwitchVoicePromptsSettingEventImplCopyWithImpl<$Res>
     extends _$SettingEventCopyWithImpl<$Res,
-        _$_ChangeSwitchVoicePromptsSettingEvent>
-    implements _$$_ChangeSwitchVoicePromptsSettingEventCopyWith<$Res> {
-  __$$_ChangeSwitchVoicePromptsSettingEventCopyWithImpl(
-      _$_ChangeSwitchVoicePromptsSettingEvent _value,
-      $Res Function(_$_ChangeSwitchVoicePromptsSettingEvent) _then)
+        _$ChangeSwitchVoicePromptsSettingEventImpl>
+    implements _$$ChangeSwitchVoicePromptsSettingEventImplCopyWith<$Res> {
+  __$$ChangeSwitchVoicePromptsSettingEventImplCopyWithImpl(
+      _$ChangeSwitchVoicePromptsSettingEventImpl _value,
+      $Res Function(_$ChangeSwitchVoicePromptsSettingEventImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SettingEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? isVoicePrompts = null,
   }) {
-    return _then(_$_ChangeSwitchVoicePromptsSettingEvent(
+    return _then(_$ChangeSwitchVoicePromptsSettingEventImpl(
       isVoicePrompts: null == isVoicePrompts
           ? _value.isVoicePrompts
           : isVoicePrompts // ignore: cast_nullable_to_non_nullable
@@ -660,9 +694,10 @@ class __$$_ChangeSwitchVoicePromptsSettingEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChangeSwitchVoicePromptsSettingEvent
+class _$ChangeSwitchVoicePromptsSettingEventImpl
     implements _ChangeSwitchVoicePromptsSettingEvent {
-  const _$_ChangeSwitchVoicePromptsSettingEvent({required this.isVoicePrompts});
+  const _$ChangeSwitchVoicePromptsSettingEventImpl(
+      {required this.isVoicePrompts});
 
   @override
   final bool isVoicePrompts;
@@ -673,10 +708,10 @@ class _$_ChangeSwitchVoicePromptsSettingEvent
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ChangeSwitchVoicePromptsSettingEvent &&
+            other is _$ChangeSwitchVoicePromptsSettingEventImpl &&
             (identical(other.isVoicePrompts, isVoicePrompts) ||
                 other.isVoicePrompts == isVoicePrompts));
   }
@@ -684,13 +719,15 @@ class _$_ChangeSwitchVoicePromptsSettingEvent
   @override
   int get hashCode => Object.hash(runtimeType, isVoicePrompts);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SettingEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ChangeSwitchVoicePromptsSettingEventCopyWith<
-          _$_ChangeSwitchVoicePromptsSettingEvent>
-      get copyWith => __$$_ChangeSwitchVoicePromptsSettingEventCopyWithImpl<
-          _$_ChangeSwitchVoicePromptsSettingEvent>(this, _$identity);
+  _$$ChangeSwitchVoicePromptsSettingEventImplCopyWith<
+          _$ChangeSwitchVoicePromptsSettingEventImpl>
+      get copyWith => __$$ChangeSwitchVoicePromptsSettingEventImplCopyWithImpl<
+          _$ChangeSwitchVoicePromptsSettingEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -789,40 +826,46 @@ class _$_ChangeSwitchVoicePromptsSettingEvent
 abstract class _ChangeSwitchVoicePromptsSettingEvent implements SettingEvent {
   const factory _ChangeSwitchVoicePromptsSettingEvent(
           {required final bool isVoicePrompts}) =
-      _$_ChangeSwitchVoicePromptsSettingEvent;
+      _$ChangeSwitchVoicePromptsSettingEventImpl;
 
   bool get isVoicePrompts;
-  @JsonKey(ignore: true)
-  _$$_ChangeSwitchVoicePromptsSettingEventCopyWith<
-          _$_ChangeSwitchVoicePromptsSettingEvent>
+
+  /// Create a copy of SettingEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ChangeSwitchVoicePromptsSettingEventImplCopyWith<
+          _$ChangeSwitchVoicePromptsSettingEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_ChangeBlocPasswordSettingEventCopyWith<$Res> {
-  factory _$$_ChangeBlocPasswordSettingEventCopyWith(
-          _$_ChangeBlocPasswordSettingEvent value,
-          $Res Function(_$_ChangeBlocPasswordSettingEvent) then) =
-      __$$_ChangeBlocPasswordSettingEventCopyWithImpl<$Res>;
+abstract class _$$ChangeBlocPasswordSettingEventImplCopyWith<$Res> {
+  factory _$$ChangeBlocPasswordSettingEventImplCopyWith(
+          _$ChangeBlocPasswordSettingEventImpl value,
+          $Res Function(_$ChangeBlocPasswordSettingEventImpl) then) =
+      __$$ChangeBlocPasswordSettingEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int newPassword});
 }
 
 /// @nodoc
-class __$$_ChangeBlocPasswordSettingEventCopyWithImpl<$Res>
-    extends _$SettingEventCopyWithImpl<$Res, _$_ChangeBlocPasswordSettingEvent>
-    implements _$$_ChangeBlocPasswordSettingEventCopyWith<$Res> {
-  __$$_ChangeBlocPasswordSettingEventCopyWithImpl(
-      _$_ChangeBlocPasswordSettingEvent _value,
-      $Res Function(_$_ChangeBlocPasswordSettingEvent) _then)
+class __$$ChangeBlocPasswordSettingEventImplCopyWithImpl<$Res>
+    extends _$SettingEventCopyWithImpl<$Res,
+        _$ChangeBlocPasswordSettingEventImpl>
+    implements _$$ChangeBlocPasswordSettingEventImplCopyWith<$Res> {
+  __$$ChangeBlocPasswordSettingEventImplCopyWithImpl(
+      _$ChangeBlocPasswordSettingEventImpl _value,
+      $Res Function(_$ChangeBlocPasswordSettingEventImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SettingEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? newPassword = null,
   }) {
-    return _then(_$_ChangeBlocPasswordSettingEvent(
+    return _then(_$ChangeBlocPasswordSettingEventImpl(
       newPassword: null == newPassword
           ? _value.newPassword
           : newPassword // ignore: cast_nullable_to_non_nullable
@@ -833,9 +876,9 @@ class __$$_ChangeBlocPasswordSettingEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChangeBlocPasswordSettingEvent
+class _$ChangeBlocPasswordSettingEventImpl
     implements _ChangeBlocPasswordSettingEvent {
-  const _$_ChangeBlocPasswordSettingEvent({required this.newPassword});
+  const _$ChangeBlocPasswordSettingEventImpl({required this.newPassword});
 
   @override
   final int newPassword;
@@ -846,10 +889,10 @@ class _$_ChangeBlocPasswordSettingEvent
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ChangeBlocPasswordSettingEvent &&
+            other is _$ChangeBlocPasswordSettingEventImpl &&
             (identical(other.newPassword, newPassword) ||
                 other.newPassword == newPassword));
   }
@@ -857,12 +900,15 @@ class _$_ChangeBlocPasswordSettingEvent
   @override
   int get hashCode => Object.hash(runtimeType, newPassword);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SettingEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ChangeBlocPasswordSettingEventCopyWith<_$_ChangeBlocPasswordSettingEvent>
-      get copyWith => __$$_ChangeBlocPasswordSettingEventCopyWithImpl<
-          _$_ChangeBlocPasswordSettingEvent>(this, _$identity);
+  _$$ChangeBlocPasswordSettingEventImplCopyWith<
+          _$ChangeBlocPasswordSettingEventImpl>
+      get copyWith => __$$ChangeBlocPasswordSettingEventImplCopyWithImpl<
+          _$ChangeBlocPasswordSettingEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -960,11 +1006,15 @@ class _$_ChangeBlocPasswordSettingEvent
 
 abstract class _ChangeBlocPasswordSettingEvent implements SettingEvent {
   const factory _ChangeBlocPasswordSettingEvent(
-      {required final int newPassword}) = _$_ChangeBlocPasswordSettingEvent;
+      {required final int newPassword}) = _$ChangeBlocPasswordSettingEventImpl;
 
   int get newPassword;
-  @JsonKey(ignore: true)
-  _$$_ChangeBlocPasswordSettingEventCopyWith<_$_ChangeBlocPasswordSettingEvent>
+
+  /// Create a copy of SettingEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ChangeBlocPasswordSettingEventImplCopyWith<
+          _$ChangeBlocPasswordSettingEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -972,7 +1022,9 @@ abstract class _ChangeBlocPasswordSettingEvent implements SettingEvent {
 mixin _$SettingState {
   bool get isLoading => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SettingState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $SettingStateCopyWith<SettingState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -996,6 +1048,8 @@ class _$SettingStateCopyWithImpl<$Res, $Val extends SettingState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of SettingState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1011,30 +1065,32 @@ class _$SettingStateCopyWithImpl<$Res, $Val extends SettingState>
 }
 
 /// @nodoc
-abstract class _$$_SettingStateCopyWith<$Res>
+abstract class _$$SettingStateImplCopyWith<$Res>
     implements $SettingStateCopyWith<$Res> {
-  factory _$$_SettingStateCopyWith(
-          _$_SettingState value, $Res Function(_$_SettingState) then) =
-      __$$_SettingStateCopyWithImpl<$Res>;
+  factory _$$SettingStateImplCopyWith(
+          _$SettingStateImpl value, $Res Function(_$SettingStateImpl) then) =
+      __$$SettingStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool isLoading});
 }
 
 /// @nodoc
-class __$$_SettingStateCopyWithImpl<$Res>
-    extends _$SettingStateCopyWithImpl<$Res, _$_SettingState>
-    implements _$$_SettingStateCopyWith<$Res> {
-  __$$_SettingStateCopyWithImpl(
-      _$_SettingState _value, $Res Function(_$_SettingState) _then)
+class __$$SettingStateImplCopyWithImpl<$Res>
+    extends _$SettingStateCopyWithImpl<$Res, _$SettingStateImpl>
+    implements _$$SettingStateImplCopyWith<$Res> {
+  __$$SettingStateImplCopyWithImpl(
+      _$SettingStateImpl _value, $Res Function(_$SettingStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SettingState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? isLoading = null,
   }) {
-    return _then(_$_SettingState(
+    return _then(_$SettingStateImpl(
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -1045,8 +1101,8 @@ class __$$_SettingStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SettingState implements _SettingState {
-  const _$_SettingState({this.isLoading = true});
+class _$SettingStateImpl implements _SettingState {
+  const _$SettingStateImpl({this.isLoading = true});
 
   @override
   @JsonKey()
@@ -1058,10 +1114,10 @@ class _$_SettingState implements _SettingState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SettingState &&
+            other is _$SettingStateImpl &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading));
   }
@@ -1069,20 +1125,25 @@ class _$_SettingState implements _SettingState {
   @override
   int get hashCode => Object.hash(runtimeType, isLoading);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SettingState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SettingStateCopyWith<_$_SettingState> get copyWith =>
-      __$$_SettingStateCopyWithImpl<_$_SettingState>(this, _$identity);
+  _$$SettingStateImplCopyWith<_$SettingStateImpl> get copyWith =>
+      __$$SettingStateImplCopyWithImpl<_$SettingStateImpl>(this, _$identity);
 }
 
 abstract class _SettingState implements SettingState {
-  const factory _SettingState({final bool isLoading}) = _$_SettingState;
+  const factory _SettingState({final bool isLoading}) = _$SettingStateImpl;
 
   @override
   bool get isLoading;
+
+  /// Create a copy of SettingState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_SettingStateCopyWith<_$_SettingState> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SettingStateImplCopyWith<_$SettingStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

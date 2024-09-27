@@ -5,7 +5,7 @@ publish_to: 'none'
 
 
 environment:
-  sdk: '>=3.1.0-163.1.beta <4.0.0'
+  sdk: ^3.5.3
   flutter: ">=1.17.0"
 
 dependencies:
@@ -14,20 +14,20 @@ dependencies:
   models:
     path: ../models
 
-  logger: ^1.4.0
-  http: ^0.13.5
-  hive: ^2.2.3
-  hive_flutter: ^1.1.0
+  logger:
+  http: ^1.2.2
+  hive:
+  hive_flutter:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: ^5.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter packages.
-flutter:
+#flutter:
 
   # To add assets to your package, add an assets section, like this:
   # assets:

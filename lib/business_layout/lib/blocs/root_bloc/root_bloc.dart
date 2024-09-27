@@ -63,8 +63,7 @@ class RootBloc extends Bloc<RootEvent, RootState> {
           );
           return;
         }
-        final Set<String> listWifiName =
-            _repositoryFireplace.listWifiIdIndicators;
+
         String? threeWifiName = wifiName;
         if (threeWifiName.split(" ").toList().length >= 3) {
           threeWifiName = wifiName.split(" ").sublist(0, 3).join(" ");
@@ -73,7 +72,8 @@ class RootBloc extends Bloc<RootEvent, RootState> {
         log("threeWifiName from root_bloc $threeWifiName ipAddress $ipAddressFireplace");
 
         ///проверка подключения напрямую
-        if (listWifiName.contains(threeWifiName)) {
+        if (_repositoryFireplace.listWifiIdIndicators.contains(threeWifiName)) {
+          //ip адресс не меняется для камина
           ipAddressFireplace = "192.168.73.1";
           //камин обнаружен
           emit(
@@ -86,9 +86,11 @@ class RootBloc extends Bloc<RootEvent, RootState> {
         } else {
           ///проверка по сохраненным в память каминам
 
-          List<HomeNetworkModel> listHomeNetworkModel =
+          final List<HomeNetworkModel> listHomeNetworkModel =
               await _localNetworkStorage.getFireplacesInLocalStorage(
-                  keyWifiName: wifiName);
+            keyWifiName: wifiName,
+          );
+
           if (listHomeNetworkModel.isNotEmpty) {
             emit(
               RootState(

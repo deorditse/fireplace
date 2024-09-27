@@ -9,7 +9,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'widgets/app_bar_fireplace.dart';
 import 'widgets/body_fireplace_connected_page/body_fireplace_connected_page.dart';
 
-class FireplaceConnectedPage extends StatelessWidget {
+class FireplaceConnectedPage extends StatefulWidget {
   static const String id = '/fireplaceConnectedPage';
 
   const FireplaceConnectedPage({
@@ -22,17 +22,34 @@ class FireplaceConnectedPage extends StatelessWidget {
   final String ipAddress;
 
   @override
+  State<FireplaceConnectedPage> createState() => _FireplaceConnectedPageState();
+}
+
+class _FireplaceConnectedPageState extends State<FireplaceConnectedPage> {
+  late final ConnectedDirectlyBloc connectedDirectlyBloc;
+
+  @override
+  void initState() {
+    connectedDirectlyBloc = ConnectedDirectlyBloc(
+      wiFiName: widget.wifiName,
+      ipAddress: widget.ipAddress,
+    );
+    connectedDirectlyBloc.add(const ConnectedDirectlyEvent.onInit());
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return BlocProvider<ConnectedDirectlyBloc>(
-      create: (_) => ConnectedDirectlyBloc()
-        ..add(
-          ConnectedDirectlyEvent.onInit(
-            wifiName: wifiName,
-            ipAddress: ipAddress,
-          ),
-        ),
+      create: (_) => connectedDirectlyBloc,
       child: const _FireplaceConnectedPage(),
     );
+  }
+
+  @override
+  void dispose() {
+    connectedDirectlyBloc.close();
+    super.dispose();
   }
 }
 
